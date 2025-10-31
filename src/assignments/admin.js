@@ -3,7 +3,8 @@
 
   Instructions:
   1. Link this file to `admin.html` using:
-     <script src="admin.js" defer></script>
+     <script src="admin.js" defer></script> 
+    
   
   2. In `admin.html`, add an `id="assignments-tbody"` to the <tbody> element
      so you can select it.
@@ -17,8 +18,10 @@ let assignments = [];
 
 // --- Element Selections ---
 // TODO: Select the assignment form ('#assignment-form').
+const assignmentForm = document.querySelector('#assignment-form');
 
 // TODO: Select the assignments table body ('#assignments-tbody').
+const assignmentsTableBody = document.querySelector('#assignments-tbody');
 
 // --- Functions ---
 
@@ -33,7 +36,18 @@ let assignments = [];
  * - A "Delete" button with class "delete-btn" and `data-id="${id}"`.
  */
 function createAssignmentRow(assignment) {
-  // ... your implementation here ...
+  const { id, title, dueDate } = assignment;
+
+  const row = document.createElement('tr');
+  row.innerHTML = `
+    <td>${title}</td>
+    <td>${dueDate}</td>
+    <td>
+      <button class="edit-btn" data-id="${id}">Edit</button>
+      <button class="delete-btn" data-id="${id}">Delete</button>
+    </td>
+  `;
+  return row;
 }
 
 /**
