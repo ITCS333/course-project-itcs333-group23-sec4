@@ -1,1 +1,239 @@
 /* CSS Styles */
+/* =========================================================
+   ASSIGNMENTS MODULE STYLING
+   (Admin, List, and Details pages only)
+   ========================================================= */
+
+/* Container wrappers for assignment-related pages */
+.assignment-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* Shared page title */
+.assignment-container h1,
+.assignment-container h2 {
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+/* ---------- List Page ---------- */
+
+.assignment-list {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.assignment-card {
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.assignment-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.assignment-card h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.15rem;
+  color: var(--brand-2);
+}
+
+.assignment-card p {
+  margin: 0.25rem 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.assignment-card a {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--brand);
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.assignment-card a:hover {
+  color: var(--brand-2);
+  border-color: var(--brand-2);
+}
+
+/* ---------- Admin Table ---------- */
+
+.admin-table-wrap {
+  overflow-x: auto;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--text);
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.admin-table th {
+  font-weight: 700;
+  color: var(--muted);
+  background: #151820;
+  position: sticky;
+  top: 0;
+}
+
+.admin-table tr:hover td {
+  background: #1a1e26;
+}
+
+.admin-table .btn-inline {
+  font-size: 0.9rem;
+  padding: 6px 10px;
+}
+
+/* ---------- Assignment Form ---------- */
+
+.assignment-form {
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.assignment-form label {
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.assignment-form input,
+.assignment-form textarea {
+  width: 100%;
+  margin-top: 0.4rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: #101218;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.assignment-form input:focus,
+.assignment-form textarea:focus {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 2px rgba(90,160,255,.25);
+}
+
+.assignment-form button {
+  margin-top: 1rem;
+}
+
+/* ---------- Details Page ---------- */
+
+.assignment-details {
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.assignment-meta {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.assignment-files {
+  margin-top: 1.25rem;
+}
+
+.assignment-files li {
+  list-style: disc;
+  margin-left: 1.5rem;
+  margin-top: 0.4rem;
+}
+
+.assignment-files a {
+  color: var(--brand-2);
+  text-decoration: none;
+}
+.assignment-files a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Comments / Discussion ---------- */
+
+.comments-section {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.comments-section h2 {
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.comment {
+  background: #10131a;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.comment h3 {
+  margin-top: 0;
+  font-size: 1rem;
+  color: var(--brand);
+}
+
+.comment p {
+  margin: 0.3rem 0 0 0;
+  color: var(--muted);
+}
+
+.comment-form {
+  margin-top: 1.2rem;
+}
+.comment-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.comment-form button {
+  margin-top: 0.8rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  .assignment-card {
+    padding: 1rem;
+  }
+  .assignment-details {
+    padding: 1.25rem;
+  }
+  .admin-table th,
+  .admin-table td {
+    padding: 0.7rem 0.8rem;
+  }
+}
