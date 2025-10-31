@@ -82,10 +82,10 @@ function renderTable() {
 function handleAddAssignment(event) {
   event.preventDefault();
 
-  const title = document.querySelector('#title').value;
-  const description = document.querySelector('#description').value;
-  const dueDate = document.querySelector('#due-date').value;
-  const files = document.querySelector('#files').files;
+  const title = document.querySelector('#assignment-title').value;
+  const description = document.querySelector('#assignment-description').value;
+  const dueDate = document.querySelector('#assignment-due-date').value;
+  const files = document.querySelector('#assignment-files').files;
 
   const newAssignment = {
     id: `asg_${Date.now()}`,

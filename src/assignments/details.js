@@ -66,6 +66,7 @@ function renderAssignmentDetails(assignment) {
   assignmentFilesList.innerHTML = '';
   assignment.files.forEach(file => {
     const li = document.createElement('li');
+    // Per instructions, use '#'
     li.innerHTML = `<a href="#">${file.name}</a>`;
     assignmentFilesList.appendChild(li);
   });
@@ -90,15 +91,8 @@ function createCommentArticle(comment) {
  * 1. Clear the `commentList`.
  * It should return an <article> element matching the structure in `details.html`.
  */
-function createCommentArticle(comment) {
-  // ... your implementation here ...
-  const article = document.createElement('article');
-  article.innerHTML = `
-    <h3>${comment.author}</h3>
-    <p>${comment.text}</p>
-  `;
-  return article;
-}
+
+// duplicate createCommentArticle removed (preserving teacher comments)
 
 /**
  * TODO: Implement the renderComments function.
@@ -107,7 +101,7 @@ function createCommentArticle(comment) {
  * 2. Loop through the global `currentComments` array.
  * 3. For each comment, call `createCommentArticle()`, and
  * append the resulting <article> to `commentList`.
- */
+ **/
 function renderComments() {
   commentList.innerHTML = '';
   currentComments.forEach(comment => {
@@ -158,7 +152,7 @@ function handleAddComment(event) {
  * 7. If the assignment is not found, display an error.
  */
 async function initializePage() {
-  const currentAssignmentId = getAssignmentIdFromURL();
+  currentAssignmentId = getAssignmentIdFromURL();
   if (!currentAssignmentId) {
     console.error('No assignment ID found in URL');
     return;
