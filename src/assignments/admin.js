@@ -59,7 +59,13 @@ function createAssignmentRow(assignment) {
  * append the resulting <tr> to `assignmentsTableBody`.
  */
 function renderTable() {
-  // ... your implementation here ...
+  // Clear the table body
+  assignmentsTableBody.innerHTML = '';
+  // Loop through assignments and append rows
+  assignments.forEach(assignment => {
+    const row = createAssignmentRow(assignment);
+    assignmentsTableBody.appendChild(row);
+  });
 }
 
 /**
@@ -74,7 +80,24 @@ function renderTable() {
  * 6. Reset the form.
  */
 function handleAddAssignment(event) {
-  // ... your implementation here ...
+  event.preventDefault();
+
+  const title = document.querySelector('#title').value;
+  const description = document.querySelector('#description').value;
+  const dueDate = document.querySelector('#due-date').value;
+  const files = document.querySelector('#files').files;
+
+  const newAssignment = {
+    id: `asg_${Date.now()}`,
+    title,
+    description,
+    dueDate,
+    files
+  };
+
+  assignments.push(newAssignment);
+  renderTable();
+  assignmentForm.reset();
 }
 
 /**
@@ -88,7 +111,11 @@ function handleAddAssignment(event) {
  * 4. Call `renderTable()` to refresh the list.
  */
 function handleTableClick(event) {
-  // ... your implementation here ...
+  if (event.target.classList.contains('delete-btn')) {
+    const assignmentId = event.target.getAttribute('data-id');
+    assignments = assignments.filter(assignment => assignment.id !== assignmentId);
+    renderTable();
+  }
 }
 
 /**
@@ -102,7 +129,13 @@ function handleTableClick(event) {
  * 5. Add the 'click' event listener to `assignmentsTableBody` (calls `handleTableClick`).
  */
 async function loadAndInitialize() {
-  // ... your implementation here ...
+  const response = await fetch('assignments.json');
+  const data = await response.json();
+  assignments = data;
+  renderTable();
+
+  assignmentForm.addEventListener('submit', handleAddAssignment);
+  assignmentsTableBody.addEventListener('click', handleTableClick);
 }
 
 // --- Initial Page Load ---
