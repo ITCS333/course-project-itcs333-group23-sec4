@@ -43,8 +43,8 @@ function createAssignmentRow(assignment) {
     <td>${title}</td>
     <td>${dueDate}</td>
     <td>
-      <button class="edit-btn" data-id="${id}">Edit</button>
-      <button class="delete-btn" data-id="${id}">Delete</button>
+      <button class="edit-btn styled-btn" data-id="${id}">Edit</button>
+      <button class="delete-btn styled-btn" data-id="${id}">Delete</button>
     </td>
   `;
   return row;
@@ -87,15 +87,33 @@ function handleAddAssignment(event) {
   const dueDate = document.querySelector('#assignment-due-date').value;
   const files = document.querySelector('#assignment-files').files;
 
-  const newAssignment = {
-    id: `asg_${Date.now()}`,
-    title,
-    description,
-    dueDate,
-    files
-  };
+  // If the form has data-edit-id, we're updating an existing assignment
+  const editId = assignmentForm.dataset.editId;
+  if (editId) {
+    const idx = assignments.findIndex(a => a.id === editId);
+    if (idx !== -1) {
+      assignments[idx].title = title;
+      assignments[idx].description = description;
+      assignments[idx].dueDate = dueDate;
+      // keep files as-is for simplicity (file inputs aren't easily serializable)
+    }
+    // Clear edit mode UI
+    delete assignmentForm.dataset.editId;
+    const addBtn = document.querySelector('#add-assignment');
+    if (addBtn) { addBtn.textContent = 'Add Assignment'; addBtn.setAttribute('data-emoji', '➕'); }
+  } else {
+    const newAssignment = {
+      id: `asg_${Date.now()}`,
+      title,
+      description,
+      dueDate,
+      files
+    };
+    assignments.push(newAssignment);
+  }
 
-  assignments.push(newAssignment);
+  // Persist to localStorage
+  localStorage.setItem('assignments', JSON.stringify(assignments));
   renderTable();
   assignmentForm.reset();
 }
@@ -111,9 +129,28 @@ function handleAddAssignment(event) {
  * 4. Call `renderTable()` to refresh the list.
  */
 function handleTableClick(event) {
+  // Edit flow: populate form with the assignment data
+  if (event.target.classList.contains('edit-btn')) {
+    const assignmentId = event.target.getAttribute('data-id');
+    const current = assignments.find(a => a.id === assignmentId);
+    if (current) {
+      document.querySelector('#assignment-title').value = current.title || '';
+      document.querySelector('#assignment-description').value = current.description || '';
+      document.querySelector('#assignment-due-date').value = current.dueDate || '';
+      // Note: file inputs can't be programmatically populated for security reasons
+      assignmentForm.dataset.editId = assignmentId;
+      const addBtn = document.querySelector('#add-assignment');
+      if (addBtn) { addBtn.textContent = 'Update Assignment'; addBtn.setAttribute('data-emoji', '✅'); }
+      // focus title to indicate edit mode
+      document.querySelector('#assignment-title').focus();
+    }
+    return; // handled
+  }
+
   if (event.target.classList.contains('delete-btn')) {
     const assignmentId = event.target.getAttribute('data-id');
     assignments = assignments.filter(assignment => assignment.id !== assignmentId);
+    localStorage.setItem('assignments', JSON.stringify(assignments));
     renderTable();
   }
 }
@@ -129,9 +166,30 @@ function handleTableClick(event) {
  * 5. Add the 'click' event listener to `assignmentsTableBody` (calls `handleTableClick`).
  */
 async function loadAndInitialize() {
-  const response = await fetch('assignments.json');
-  const data = await response.json();
-  assignments = data;
+  // Try to load from localStorage first
+  const stored = localStorage.getItem('assignments');
+  if (stored) {
+    try {
+      assignments = JSON.parse(stored);
+    } catch (e) {
+      assignments = [];
+    }
+  } else {
+    try {
+      // assignments.json lives in the api/ subfolder
+      const response = await fetch('api/assignments.json');
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const data = await response.json();
+      assignments = Array.isArray(data) ? data : [];
+      // Save initial data to localStorage
+      localStorage.setItem('assignments', JSON.stringify(assignments));
+    } catch (err) {
+      // If loading fails (e.g., running from filesystem without a server), fall back
+      console.error('Failed to load assignments.json, falling back to empty list:', err);
+      assignments = [];
+    }
+  }
+
   renderTable();
 
   assignmentForm.addEventListener('submit', handleAddAssignment);

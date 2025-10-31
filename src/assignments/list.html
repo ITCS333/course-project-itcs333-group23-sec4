@@ -17,7 +17,7 @@
     <!-- TODO: Link to your CSS framework or stylesheet. -->
     <link rel="stylesheet" href="../common/styles.css">
 </head>
-<body>
+<body class="assignment-container">
 
     <!-- TODO: Create a 'header' with a main heading ('h1') "Course Assignments". -->
     <header>
@@ -27,32 +27,46 @@
     <!-- TODO: Create the 'main' content area. -->
     <main>
         <!-- TODO: Create a 'section' to contain the list of assignments. -->
-        <section id="assignment-list-section">
+        <section id="assignment-list-section" class="assignment-list">
             <!-- TODO: Add 2-3 dummy assignment entries using the structure below. -->
 
             <!-- Example Assignment 1: -->
             <!-- TODO: Use an 'article' element for each assignment. -->
-            <article>
-                <!-- TODO: Add a heading ('h2') for the assignment's title (e.g., "Assignment 1: HTML Basics"). -->
+            <article class="assignment-card">
                 <h2>Assignment 1: HTML Basics</h2>
-                <!-- TODO: Add a paragraph ('p') to display the due date, e.g., "Due: YYYY-MM-DD". -->
-                <p>Due: 2023-09-30</p>
-                <!-- TODO: Add another paragraph ('p') for a brief description. -->
+                <div class="meta-row" aria-hidden="true">
+                    <span class="badge">Open</span>
+                    <span class="due-pill">Due: 2023-09-30</span>
+                </div>
                 <p>This assignment covers the basics of HTML, including structure, elements, and attributes.</p>
-                <!-- TODO: Add an anchor tag ('a') that links to the detail page. 
-                     - For now, the 'href' can be "assignment-detail.html".
-                     - The link text should be "View Details & Discussion". -->
-                <a href="assignment-detail.html">View Details & Discussion</a>
+                <div class="assignment-footer">
+                    <div class="meta-left">
+                        <div class="progress" aria-hidden="true"><span style="width:35%"></span></div>
+                    </div>
+                    <div class="meta-right">
+                        <a href="assignment-detail.html" class="btn btn--primary" data-emoji="🔗">View Details</a>
+                    </div>
+                </div>
             </article>
             <!-- End of article. -->
 
             <!-- Example Assignment 2: -->
             <!-- TODO: Create a second 'article' for another assignment with the same structure. -->
-            <article>
+            <article class="assignment-card">
                 <h2>Assignment 2: CSS Fundamentals</h2>
-                <p>Due: 2023-10-15</p>
+                <div class="meta-row" aria-hidden="true">
+                    <span class="badge" style="background: color-mix(in oklab, var(--accent-teal) 14%, var(--btn-dark-1));">Open</span>
+                    <span class="due-pill">Due: 2023-10-15</span>
+                </div>
                 <p>This assignment focuses on the fundamentals of CSS, including selectors, properties, and styling techniques.</p>
-                <a href="assignment-detail.html">View Details & Discussion</a>
+                <div class="assignment-footer">
+                    <div class="meta-left">
+                        <div class="progress" aria-hidden="true"><span style="width:62%"></span></div>
+                    </div>
+                    <div class="meta-right">
+                        <a href="assignment-detail.html" class="btn btn--primary" data-emoji="🔗">View Details</a>
+                    </div>
+                </div>
             </article>
             <!-- End of article. -->
         </section>

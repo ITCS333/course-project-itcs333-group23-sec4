@@ -20,7 +20,7 @@
     <!-- TODO: Link to your CSS framework or stylesheet. -->
     <link rel="stylesheet" href="../common/styles.css">
 </head>
-<body>
+<body class="assignment-container">
 
     <!-- TODO: Create a 'header' with a main heading ('h1') "Manage Assignments". -->
     <header>
@@ -37,7 +37,7 @@
             <!-- TODO: Add a sub-heading ('h2') "Add a New Assignment". -->
             <h2>Add a New Assignment</h2>
             <!-- TODO: Create a 'form' with an id "assignment-form". Action can be '#'. -->
-            <form id="assignment-form" action="#">
+            <form id="assignment-form" class="assignment-form" action="#">
                 <!-- TODO: Use a 'fieldset' to group the form controls. -->
                 <fieldset>
                     <!-- TODO: Add a 'legend', e.g., "Assignment Details". -->
@@ -69,7 +69,7 @@
 
                     <!-- TODO: Add a 'button' to submit the form.
                          - id="add-assignment", type="submit", Text: "Add Assignment" -->
-                    <button id="add-assignment" type="submit">Add Assignment</button>
+                    <button id="add-assignment" type="submit" class="btn btn--primary btn--rounded" data-emoji="➕">Add Assignment</button>
                 </fieldset>
                 <!-- End of fieldset. -->
             </form>
@@ -84,8 +84,10 @@
         <section>
             <h2>Current Assignments</h2>
 
+            <!-- Wrap the table in the admin-table-wrap and add admin-table class -->
+            <div class="admin-table-wrap">
             <!-- TODO: Create a 'table' with id "assignments-table". -->
-            <table id="assignments-table">
+            <table id="assignments-table" class="admin-table">
                 <!-- TODO: Create a 'thead' and a 'tr' inside it. -->
                 <thead>
                     <tr>
@@ -108,10 +110,9 @@
 
                         <!-- TODO: Add a 'td' containing the action buttons. -->
                         <td>
-                            <!-- TODO: Add an "Edit" button. -->
-                            <button class="edit-assignment">Edit</button>
-                            <!-- TODO: Add a "Delete" button. -->
-                            <button class="delete-assignment">Delete</button>
+                            <!-- Match the JS expectations: include data-id and use the 'edit-btn' / 'delete-btn' classes -->
+                            <button class="edit-btn btn btn--ghost btn--small btn--rounded" data-id="asg_demo1" data-emoji="✏️" aria-label="Edit">Edit</button>
+                            <button class="delete-btn btn btn--danger btn--small btn--rounded" data-id="asg_demo1" data-emoji="🗑️" aria-label="Delete">Delete</button>
                         </td>
                         <!-- End of actions 'td'. -->
                     <!-- End of the row. -->
@@ -119,6 +120,7 @@
                 </tr>
                 </tbody><!-- End of tbody. -->
             </table><!-- End of table. -->
+            </div>
         </section><!-- End of list section. -->
 
     

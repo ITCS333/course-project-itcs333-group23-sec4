@@ -66,8 +66,8 @@ function renderAssignmentDetails(assignment) {
   assignmentFilesList.innerHTML = '';
   assignment.files.forEach(file => {
     const li = document.createElement('li');
-    // Per instructions, use '#'
-    li.innerHTML = `<a href="#">${file.name}</a>`;
+    // Make file downloadable (assume files are in assets or api folder)
+    li.innerHTML = `<a href="../api/${file}" download>${file}</a>`;
     assignmentFilesList.appendChild(li);
   });
 }
@@ -76,11 +76,12 @@ function renderAssignmentDetails(assignment) {
  * TODO: Implement the createCommentArticle function.
  * It takes one comment object {author, text}.
  */
-function createCommentArticle(comment) {
+function createCommentArticle(comment, index) {
   const article = document.createElement('article');
   article.innerHTML = `
     <h3>${comment.author}</h3>
     <p>${comment.text}</p>
+    <button class="delete-comment-btn styled-btn" data-index="${index}">Delete</button>
   `;
   return article;
 }
@@ -104,8 +105,8 @@ function createCommentArticle(comment) {
  **/
 function renderComments() {
   commentList.innerHTML = '';
-  currentComments.forEach(comment => {
-    const article = createCommentArticle(comment);
+  currentComments.forEach((comment, idx) => {
+    const article = createCommentArticle(comment, idx);
     commentList.appendChild(article);
   });
 }
@@ -125,14 +126,50 @@ function renderComments() {
  */
 function handleAddComment(event) {
   event.preventDefault();
-
   const commentText = newCommentText.value.trim();
   if (!commentText) return;
-
   const newComment = { author: 'Student', text: commentText };
   currentComments.push(newComment);
+  saveCommentsToStorage();
   renderComments();
   newCommentText.value = '';
+}
+
+/**
+ * TODO: Implement the handleCommentListClick function.
+ * This function should handle click events on the comment list.
+ * If a delete button is clicked, it should remove the comment from the list and
+ * update the storage.
+ */
+function handleCommentListClick(event) {
+  if (event.target.classList.contains('delete-comment-btn')) {
+    const idx = event.target.getAttribute('data-index');
+    currentComments.splice(idx, 1);
+    saveCommentsToStorage();
+    renderComments();
+  }
+}
+
+/**
+ * TODO: Implement the saveCommentsToStorage function.
+ * This function should save the currentComments array to localStorage
+ * under the key 'assignmentComments', using the currentAssignmentId as part of the key.
+ */
+function saveCommentsToStorage() {
+  // Save comments for this assignment in localStorage
+  const allComments = JSON.parse(localStorage.getItem('assignmentComments') || '{}');
+  allComments[currentAssignmentId] = currentComments;
+  localStorage.setItem('assignmentComments', JSON.stringify(allComments));
+}
+
+/**
+ * TODO: Implement the loadCommentsFromStorage function.
+ * This function should load the comments for the currentAssignmentId from localStorage
+ * and update the currentComments array.
+ */
+function loadCommentsFromStorage() {
+  const allComments = JSON.parse(localStorage.getItem('assignmentComments') || '{}');
+  currentComments = allComments[currentAssignmentId] || [];
 }
 
 /**
@@ -158,21 +195,17 @@ async function initializePage() {
     return;
   }
 
-  const [assignmentsResponse, commentsResponse] = await Promise.all([
-    fetch('assignments.json'),
-    fetch('comments.json')
-  ]);
-
+  const assignmentsResponse = await fetch('assignments.json');
   const assignments = await assignmentsResponse.json();
-  const comments = await commentsResponse.json();
-
   const assignment = assignments.find(a => a.id === currentAssignmentId);
-  currentComments = comments[currentAssignmentId] || [];
+
+  loadCommentsFromStorage();
 
   if (assignment) {
     renderAssignmentDetails(assignment);
     renderComments();
     commentForm.addEventListener('submit', handleAddComment);
+    commentList.addEventListener('click', handleCommentListClick);
   } else {
     console.error('Assignment not found');
   }
