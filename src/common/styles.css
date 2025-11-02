@@ -579,3 +579,628 @@ html:not([data-theme="light"]) { color-scheme: dark; }
 .assignment-card:nth-child(2) { animation-delay: .03s; }
 .assignment-card:nth-child(3) { animation-delay: .06s; }
 .assignment-card:nth-child(4) { animation-delay: .09s; }
+
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------index & login & manage_users styling (Husain's CSS)--------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* ==========================================
+    GLOBAL DESIGN TOKENS
+    (Adjusted for Black and Blue Theme)
+    ========================================== */
+:root {
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius: 12px; /* Slightly larger radius for elegance */
+
+  --bg: #03080f; /* Deep, elegant black background */
+  --panel: #0a111a; /* Dark panel background */
+  --panel-2: #101925; /* Slightly lighter panel for contrast */
+  --text: #e6f0ff; /* Light, slightly blue-tinted text */
+  --muted: #8899b8; /* Muted text color */
+  --border: #1a2c42; /* Subtle blue border */
+  --brand: #4a90e2; /* Core blue brand color */
+  --brand-hover: #72b2f7; /* Lighter blue for hover */
+  --brand-accent: #2c5ba7; /* Deeper blue accent */
+
+  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-medium: 0 10px 30px rgba(0, 0, 0, 0.55);
+  --shadow-strong: 0 15px 40px rgba(0, 0, 0, 0.7);
+
+  --btn-bg: var(--brand-accent);
+  --btn-bg-hover: var(--brand);
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* A clear, modern font */
+}
+
+/* Light Theme Fallback (Kept for completeness but will not affect the dark theme) */
+:root[data-theme="light"] {
+  --bg: #f5f8fb;
+  --panel: #ffffff;
+  --panel-2: #fbfdff;
+  --text: #0f1720;
+  --muted: #4b5963;
+  --border: #e6eef6;
+  --brand: #0b6ef6;
+  --brand-hover: #0a58d8;
+  --btn-bg: #e6f0ff;
+  --btn-bg-hover: #dcecff;
+}
+
+/* ==========================================
+    COMMON ELEMENT STYLING (Scoped Per Page)
+    ========================================== */
+body.index-page,
+body.login-page,
+body.manage-users-page {
+  font-family: var(--font-family);
+  line-height: 1.6;
+  background-color: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* Removed filter: blur(5px) to prevent blurring content */
+  backdrop-filter: blur(5px);
+  /* Added position: relative to properly position the ::before element */
+  position: relative; 
+  /* Important: Set background-image to none here, it's moved to ::before */
+  background-image: none !important; 
+}
+
+/* Links (Shared for all three pages) */
+body.index-page a,
+body.manage-users-page a {
+  text-decoration: none;
+  color: var(--brand-hover);
+  transition: color 0.3s ease;
+}
+
+body.index-page a:hover,
+body.manage-users-page a:hover {
+  color: var(--brand);
+  text-decoration: underline;
+}
+
+/* Buttons (Shared for all three pages) */
+body.index-page button,
+body.login-page button,
+body.manage-users-page button {
+  background: var(--btn-bg);
+  color: var(--text);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+body.index-page button:hover,
+body.login-page button:hover,
+body.manage-users-page button:hover {
+  background: var(--btn-bg-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Inputs & Textareas (Shared for all three pages) */
+body.index-page input,
+body.index-page textarea,
+body.login-page input,
+body.login-page textarea,
+body.manage-users-page input,
+body.manage-users-page textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  color: var(--text);
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  display: block;
+  box-sizing: border-box; /* Important for padding/width */
+}
+
+body.index-page input:focus,
+body.index-page textarea:focus,
+body.login-page input:focus,
+body.login-page textarea:focus,
+body.manage-users-page input:focus,
+body.manage-users-page textarea:focus {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.3); /* Brand glow */
+  outline: none;
+}
+
+/* Headings (Shared for all three pages) */
+h1,
+h2,
+h3 {
+  margin: 0.5rem 0;
+  font-weight: 700;
+  color: var(--brand-hover);
+}
+h1 {
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+}
+h2 {
+  font-size: 1.8rem;
+}
+h3 {
+  font-size: 1.3rem;
+}
+
+/* ==========================================
+    INDEX PAGE STYLING (Main File)
+    ========================================== */
+
+/* Pseudo-element for Index Page Background Image Blur */
+body.index-page::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Send behind content */
+  /* --- NEW: Image and Blur applied here --- */
+  background-image: url('https://i.pinimg.com/736x/6c/28/21/6c282131870f2f0767b180c54d17f22f.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(5px);
+  -webkit-filter: blur(5px); /* For cross-browser compatibility */
+}
+
+body.index-page {
+  /* Removed: background-image URL and filter: blur(5px); */
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center; /* Center content vertically */
+  padding: 2rem;
+}
+
+body.index-page main {
+  width: 100%;
+  max-width: 900px; /* Increased max-width for a more expansive look */
+  margin-top: 2rem;
+}
+
+.index-header {
+  background: var(--panel);
+  padding: 2rem 3rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-strong);
+  margin-bottom: 3rem;
+  text-align: center;
+  border-top: 3px solid var(--brand); /* Elegant top border */
+}
+
+.index-header h1 {
+  color: var(--brand);
+  text-shadow: 0 0 10px rgba(74, 144, 226, 0.5); /* Subtle text glow */
+}
+
+.index-nav {
+  background: var(--panel-2);
+  padding: 2.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-strong);
+  border: 1px solid var(--border);
+}
+
+.index-nav h2 {
+  margin-bottom: 2rem;
+  color: var(--brand-hover);
+  border-bottom: 2px solid var(--brand-accent);
+  padding-bottom: 0.5rem;
+}
+
+.index-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr; 
+  gap: 1.5rem; /* Space between sections */
+}
+
+.index-section {
+  padding: 0; 
+  border-radius: var(--radius);
+  display: flex; 
+  flex-direction: column; 
+  gap: 0.5rem; 
+}
+
+.index-nav-list li {
+  margin: 0;
+}
+
+.index-nav-list li a {
+  display: flex;
+  align-items: center;
+  padding: 0.9rem 1.2rem;
+  background: var(--panel);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  color: var(--text);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.index-nav-list li a:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--brand);
+  background: var(--brand-accent);
+  color: var(--text);
+}
+
+/* Specific section link styling for visual grouping (Optional but attractive) */
+.admin-links a {
+  border-left: 5px solid #e74c3c; /* Red border for admin pages */
+}
+.student-links a {
+  border-left: 5px solid #2ecc71; /* Green border for student pages */
+}
+.general-links a {
+  border-left: 5px solid var(--brand);
+}
+
+/* ==========================================
+    LOGIN PAGE STYLING
+    ========================================== */
+
+/* Pseudo-element for Login Page Background Image Blur */
+body.login-page::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Send behind content */
+  /* --- NEW: Image and Blur applied here --- */
+  background-image: url('https://i.pinimg.com/1200x/c7/36/f8/c736f83436d84ddc039fe42de40c8ec7.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+}
+
+body.login-page {
+  /* Removed: background-image URL and filter: blur(5px); */
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.login-main {
+  width: 100%;
+  max-width: 450px;
+  background: var(--panel);
+  padding: 3rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-strong);
+  border-bottom: 5px solid var(--brand); /* A strong bottom border accent */
+  animation: fadeSlideIn 0.7s forwards;
+}
+
+.login-title {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: var(--brand-hover);
+  text-shadow: 0 0 5px rgba(74, 144, 226, 0.4);
+}
+
+.login-fieldset {
+  border: 1px solid var(--border);
+  padding: 2rem;
+  border-radius: var(--radius-sm);
+}
+
+.login-legend {
+  color: var(--muted);
+  font-weight: 600;
+  padding: 0 0.5rem;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.login-label {
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+  display: block; /* Ensures label is on its own line */
+  color: var(--muted);
+}
+
+/* Submit button */
+.login-button {
+  width: 100%;
+  margin-top: 1rem;
+  background: var(--brand);
+  color: var(--bg); /* Dark text on bright button */
+  border: none;
+  font-size: 1.1rem;
+}
+
+.login-button:hover {
+  background: var(--brand-hover);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-strong);
+}
+
+/* Login animation */
+@keyframes fadeSlideIn {
+  from {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ==========================================
+    MANAGE USERS PAGE STYLING
+    ========================================== */
+
+/* Note: The Manage Users page does not have a background image defined 
+   in the provided CSS, so no ::before element is created for it. */
+body.manage-users-page {
+  padding: 3rem;
+  min-height: 100vh;
+}
+
+.admin-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 1rem;
+  border-bottom: 2px solid var(--brand);
+}
+
+.admin-header h1 {
+  color: var(--brand);
+  font-size: 3rem;
+}
+
+.admin-main {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.password-management-section,
+.student-management-section {
+  background: var(--panel);
+  padding: 2.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-medium);
+  margin-bottom: 3rem;
+  border-left: 5px solid var(--brand-accent);
+}
+
+.section-title {
+  margin-bottom: 1.5rem;
+  color: var(--brand-hover);
+}
+
+.password-form,
+.add-student-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.password-fieldset,
+.student-fieldset {
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.password-form .btn {
+  margin-top: 1rem;
+}
+
+.student-list-title {
+  color: var(--text);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--brand);
+  padding-left: 1rem;
+}
+
+/* Tables */
+.student-table {
+  width: 100%;
+  border-collapse: separate; /* Use separate for rounded corners */
+  border-spacing: 0;
+  margin-top: 1rem;
+  box-shadow: var(--shadow-medium);
+  overflow: hidden; /* Ensures borders/shadow don't leak */
+  border-radius: var(--radius);
+}
+
+.student-table thead tr {
+  background: var(--brand-accent);
+}
+
+.student-table th,
+.student-table td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.student-table th {
+  color: var(--text);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.student-table tr:nth-child(even) {
+  background: var(--panel-2);
+}
+.student-table tr:nth-child(odd) {
+  background: var(--panel);
+}
+
+.student-table tr:hover {
+  background: rgba(74, 144, 226, 0.2); /* Subtle blue hover */
+}
+
+/* Action buttons */
+.btn {
+  margin-right: 0.5rem;
+}
+
+.btn.edit-btn {
+  background: var(--brand);
+  color: var(--bg);
+}
+.btn.edit-btn:hover {
+  background: var(--brand-hover);
+}
+
+.btn.delete-btn {
+  background: #c0392b; /* Red for danger */
+  color: var(--text);
+}
+.btn.delete-btn:hover {
+  background: #e74c3c;
+}
+
+/* Details element for add student */
+.add-student-details {
+  background: var(--panel-2);
+  padding: 0;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border);
+}
+
+.add-student-summary {
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--brand-hover);
+  list-style: none; /* Hide default triangle */
+  transition: background 0.2s;
+}
+
+.add-student-summary:hover {
+  background: var(--brand-accent);
+  color: var(--text);
+}
+
+.add-student-details[open] .add-student-summary {
+  border-bottom: 1px solid var(--border);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+}
+
+.add-student-form {
+  padding: 1.5rem;
+}
+
+/* ==========================================
+    RESPONSIVE
+    ========================================== */
+@media (max-width: 900px) {
+  body.index-page main {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  body.index-page,
+  body.manage-users-page {
+    padding: 1rem;
+  }
+  .index-header {
+    padding: 1.5rem;
+  }
+  .index-nav {
+    padding: 1.5rem;
+  }
+  .login-main {
+    padding: 2rem;
+  }
+  body.manage-users-page table th,
+  body.manage-users-page table td {
+    padding: 0.7rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 2rem;
+  }
+  .student-table th,
+  .student-table td {
+    display: block; /* Stack table cells for small screens */
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .student-table thead {
+    display: none; /* Hide table header */
+  }
+
+  .student-table td {
+    text-align: right;
+    border: none;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  /* Add data label before cell content for clarity */
+  .student-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: 700;
+    color: var(--brand);
+  }
+
+  .student-table tr {
+    margin-bottom: 1rem;
+    display: block;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1rem;
+  }
+}
