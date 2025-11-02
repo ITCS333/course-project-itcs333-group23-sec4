@@ -4,103 +4,106 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Admin Portal</title>
-     <link rel="stylesheet" href="styles.css">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal</title>
+    <link rel="stylesheet" href="../common/styles.css">
+  </head>
 
-<body>
-
-    <header>
-        <h1>Admin Portal</h1>
+  <body class="manage-users-page">
+    <header class="admin-header">
+      <h1>Admin Portal</h1>
     </header>
 
-    <main>
-        <!-- Section 1: Password Management -->
-         <section id="password-management">
-            <h2>Change Your Password</h2>
-            <form action="#">
-                <fieldset>
-                    <legend>Password Update</legend>
+    <main class="admin-main">
 
-                    <label for="current-password">Current Password:</label>
-                    <input type="password" id="current-password" required>
+      <!-- Section 1: Password Management -->
+      <section class="password-management-section">
+        <h2 class="section-title">Change Your Password</h2>
 
-                    <label for="new-password">New Password:</label>
-                    <input type="password" id="new-password" minlength="8" required>
+        <form action="#" class="password-form">
+          <fieldset class="password-fieldset">
+            <legend>Password Update</legend>
 
-                    <label for="confirm-password">Confirm New Password:</label>
-                    <input type="password" id="confirm-password" required>
+            <label for="current-password">Current Password:</label>
+            <input type="password" id="current-password" required>
 
-                    <button type="submit" id="change">Update Password</button>
-                </fieldset>
-            </form>
-         </section>
+            <label for="new-password">New Password:</label>
+            <input type="password" id="new-password" minlength="8" required>
 
-        <!-- Section 2: Student Management -->
-         <section id="student-management">
-            <h2>Manage Students</h2>
-            <!-- Subsection 2.1: Add New Student Form -->
-            <details>
-                <summary>Add New Student</summary>
-                <form action="#">
-                    <fieldset>
-                        <legend>New Student Information</legend>
+            <label for="confirm-password">Confirm New Password:</label>
+            <input type="password" id="confirm-password" required>
 
-                        <label for="student-name">Full Name:</label>
-                        <input type="text" id="student-name" required>
+            <button type="submit" class="btn change-btn" id="change">Update Password</button>
+          </fieldset>
+        </form>
+      </section>
 
-                        <label for="student-id">Student ID:</label>
-                        <input type="text" id="student-id" required>
+      <!-- Section 2: Student Management -->
+      <section class="student-management-section">
+        <h2 class="section-title">Manage Students</h2>
 
-                        <label for="student-email">Email:</label>
-                        <input type="email" id="student-email" required>
-                        
-                        <label for="default-password">Default Password:</label>
-                        <input type="text" id="default-password" value="password123">
+        <!-- Subsection 2.1: Add New Student Form -->
+        <details class="add-student-details">
+          <summary class="add-student-summary">Add New Student</summary>
 
-                        <button type="submit" id="add">Add Student</button>
-                    </fieldset>
-                </form>
-            </details>
+          <form action="#" class="add-student-form">
+            <fieldset class="student-fieldset">
+              <legend>New Student Information</legend>
 
-            <!-- Subsection 2.2: Student List -->
-            <h3>Registered Students</h3>
-            <table id="student-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Student ID</th>
-                        <th>Email</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>John Doe</td>
-                        <td>12345</td>
-                        <td>john.doe@example.com</td>
-                        <td>
-                            <button class="edit">Edit</button>
-                            <button class="delete">Delete</button>
-                        </td>
-                    </tr>
+              <label for="student-name">Full Name:</label>
+              <input type="text" id="student-name" required>
 
-                    <tr>
-                        <td>Husain Qamber</td>
-                        <td>202300060</td>
-                        <td>202300060@stu.uob.edu.bh</td>
-                        <td>
-                            <button class="edit">Edit</button>
-                            <button class="delete">Delete</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-         </section>
-      
+              <label for="student-id">Student ID:</label>
+              <input type="text" id="student-id" required>
+
+              <label for="student-email">Email:</label>
+              <input type="email" id="student-email" required>
+
+              <label for="default-password">Default Password:</label>
+              <input type="text" id="default-password" value="password123">
+
+              <button type="submit" class="btn add-btn" id="add">Add Student</button>
+            </fieldset>
+          </form>
+        </details>
+
+        <!-- Subsection 2.2: Student List -->
+        <h3 class="student-list-title">Registered Students</h3>
+        <table class="student-table" id="student-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Student ID</th>
+              <th>Email</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>John Doe</td>
+              <td>12345</td>
+              <td>john.doe@example.com</td>
+              <td>
+                <button class="btn edit-btn">Edit</button>
+                <button class="btn delete-btn">Delete</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Husain Qamber</td>
+              <td>202300060</td>
+              <td>202300060@stu.uob.edu.bh</td>
+              <td>
+                <button class="btn edit-btn">Edit</button>
+                <button class="btn delete-btn">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
     </main>
 </body>
 </html>
