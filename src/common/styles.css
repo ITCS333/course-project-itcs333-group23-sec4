@@ -648,6 +648,7 @@ body.manage-users-page {
   position: relative; 
   /* Important: Set background-image to none here, it's moved to ::before */
   background-image: none !important; 
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Links (Shared for all three pages) */
@@ -752,7 +753,7 @@ body.index-page::before {
   height: 100%;
   z-index: -1; /* Send behind content */
   /* --- NEW: Image and Blur applied here --- */
-  background-image: url('https://i.pinimg.com/736x/6c/28/21/6c282131870f2f0767b180c54d17f22f.jpg');
+  background-image: url('https://i.pinimg.com/736x/58/6f/46/586f46866fea6d8d89a98cf5f9a04232.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
