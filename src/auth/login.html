@@ -15,7 +15,7 @@
       <section class="login-section">
         <h1 class="login-title">Welcome Back!</h1>
         
-        <form action="#" class="login-form">
+        <form action="#" class="login-form" id="login-form" novalidate>
           <fieldset class="login-fieldset">
             <legend class="login-legend">Secure Login</legend>
 
@@ -27,8 +27,12 @@
 
             <button type="submit" id="login" class="login-button">Log In</button>
           </fieldset>
+
+          <div id="message-container"></div>
+
         </form>
       </section>
     </main>
+    <script src="login.js" defer></script>
   </body>
 </html>
