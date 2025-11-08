@@ -732,7 +732,7 @@ body.index-page::before {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background-image: url('https://i.pinimg.com/1200x/ea/cb/d3/eacbd3ac6a3d097d54dd5a6d9c8f47b7.jpg');
+  background-image: url('../../assets/images/main-page-img.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -828,7 +828,7 @@ body.login-page::before {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background-image: url('https://i.pinimg.com/1200x/f7/19/98/f7199828e8cfc853ecf9eed1773a890d.jpg');
+  background-image: url('../../assets/images/login-img.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
