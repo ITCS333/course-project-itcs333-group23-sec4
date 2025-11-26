@@ -1,66 +1,75 @@
-<!--
-  Requirement: Create the Dedicated Page for a Single Week
-
-  Instructions:
-  This page displays the full details for one week and allows for discussion.
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- TODO: Add meta tags for charset and viewport. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- TODO: Add a title, for now use "Week Details". -->
+    <title>Week Details</title>
 
-    <!-- TODO: Link to your CSS framework or stylesheet. -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- TODO: Create a 'header' with a main heading ('h1'). Use a dummy title like "Week 1: Introduction to HTML". -->
+    <header>
+        <h1 id="week-title-heading">Week 1: Introduction to HTML (Loading...)</h1>
+        <a href="list.html">← Back to Weekly Breakdown</a>
+    </header>
 
-    <!-- TODO: Create the 'main' content area. -->
+    <main>
 
-        <!-- Section 1: Weekly Information -->
-        <!-- TODO: Use an 'article' to display the main weekly information. -->
-            <!-- TODO: Add a paragraph ('p') to display the start date, e.g., "Starts on: YYYY-MM-DD". -->
-            <!-- TODO: Add a sub-heading ('h2') "Description & Notes". -->
-            <!-- TODO: Add a paragraph ('p') with dummy text for the week's detailed notes. -->
+        <article id="weekly-content">
+            <p id="week-start-date">Starts on: YYYY-MM-DD</p>
 
-            <!-- TODO: Add another sub-heading ('h2') "Exercises & Resources". -->
-            <!-- TODO: Use an unordered list ('ul') to display the links for the week. -->
-                <!-- TODO: Add list items ('li') with anchor tags ('a') for each resource. Use dummy links for now. -->
-                <!-- Example: <li><a href="#">Exercise 1 - Basic Tags</a></li> -->
-            <!-- End of the list. -->
-        <!-- End of article. -->
+            <h2>Description & Notes</h2>
+            <p id="week-description">
+                This week focuses on the foundational elements of HTML5. We will cover the document structure, essential tags like `<html>`, `<head>`, `<body>`, and basic text formatting elements. Understanding the semantic meaning of these tags is crucial for building accessible and well-structured web pages.
+            </p>
 
-        <!-- Section 2: Discussion Forum -->
-        <!-- TODO: Create a 'section' for the discussion, with an 'id' of "discussion-forum". -->
-            <!-- TODO: Add a sub-heading ('h2') "Discussion". -->
+            <h2>Exercises & Resources</h2>
+            <ul id="week-resources-list">
+                <li><a href="#" target="_blank">Exercise 1 - Basic Tags & Structure</a></li>
+                <li><a href="#" target="_blank">W3C HTML5 Official Documentation</a></li>
+                </ul>
+        </article>
 
-            <!-- Subsection 2.1: Existing Comments -->
-            <!-- TODO: Add a container (like a 'div') for the list of comments. -->
-                <!-- TODO: Add 1-2 dummy comments to show the structure. -->
+        <section id="discussion-forum">
+            <h2>Discussion</h2>
 
-                <!-- Example Comment 1: -->
-                <!-- TODO: Use an 'article' for each comment. -->
-                    <!-- TODO: Use a 'p' for the comment text (e.g., "I have a question about the 'header' tag."). -->
-                    <!-- TODO: Use a 'footer' to show the author (e.g., "Posted by: John Doe"). -->
-                <!-- End of comment article. -->
+            <div id="comments-container">
+                <article class="comment" data-comment-id="1">
+                    <p>I have a question about the difference between `<div>` and semantic elements like `<section>` and `<article>`. When should I use one over the other?</p>
+                    <footer>Posted by: **John Doe** on <time datetime="2025-11-17">2025-11-17</time></footer>
+                </article>
 
-            <!-- Subsection 2.2: Add a Comment Form -->
-            <!-- TODO: Create a 'form' for users to post new comments. Action can be '#'. -->
-                <!-- TODO: Use a 'fieldset' to group the controls. -->
-                    <!-- TODO: Add a 'legend', e.g., "Ask a Question". -->
+                <article class="comment" data-comment-id="2">
+                    <p>The link for the W3C documentation seems to be broken. Could you please check it?</p>
+                    <footer>Posted by: **Jane Smith** on <time datetime="2025-11-17">2025-11-17</time></footer>
+                </article>
 
-                    <!-- TODO: Add a 'label' and 'textarea' for the comment box.
-                         - label 'for': "new-comment"
-                         - textarea 'id': "new-comment", required -->
+                </div>
+
+            <form id="new-comment-form" action="#">
+                <fieldset>
+                    <legend>Ask a Question / Post a Comment</legend>
+
+                    <div>
+                        <label for="comment-author">Your Name (Optional):</label>
+                        <input id="comment-author" type="text" placeholder="Anonymous">
+                    </div>
+
+                    <div>
+                        <label for="new-comment">Your Comment:</label>
+                        <textarea id="new-comment" rows="5" required></textarea>
+                    </div>
                     
-                    <!-- TODO: Add a 'button' to submit the comment.
-                         - type="submit", Text: "Post Comment" -->
-                <!-- End of fieldset. -->
-            <!-- End of form. -->
-        <!-- End of discussion section. -->
+                    <div>
+                        <button type="submit">Post Comment</button>
+                    </div>
+                </fieldset>
+            </form>
+        </section>
 
-    <!-- End of main. -->
+    </main>
+
+    <script src="detail.js"></script>
 </body>
 </html>
-
