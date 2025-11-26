@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Project-level component styles can be added here using @layer */
+
+@layer base {
+  body { @apply bg-primary-900 text-paper font-sans; }
+}
+
+@layer components {
+  .btn-primary { @apply bg-primary text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:bg-primary-600; }
+  .card { @apply bg-surface border border-charcoal rounded-xl p-6 shadow-md; }
+}

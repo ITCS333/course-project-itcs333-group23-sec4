@@ -1,0 +1,4 @@
+/* Extra small helpers and utilities */
+.text-paper { color: theme('colors.paper.DEFAULT'); }
+.bg-surface { background-color: theme('colors.surface', '#1e293b'); }
+.border-charcoal { border-color: theme('colors.charcoal.DEFAULT'); }
