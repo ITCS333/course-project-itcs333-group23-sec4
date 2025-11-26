@@ -14,113 +14,66 @@
     <!-- TODO: Add a title, e.g., "Course Assignments". -->
     <title>Course Assignments</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CSS -->
     <link rel="stylesheet" href="../common/dist/styles.css">
-    <style>
-        body {
-            background-color: var(--bg-primary) !important;
-            color: var(--text-primary) !important;
-        }
-        .navbar-dark {
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary)) !important;
-            box-shadow: var(--shadow-md);
-        }
-        .navbar-brand {
-            font-weight: 700;
-            font-size: 1.35rem;
-            color: white !important;
-            letter-spacing: 0.5px;
-        }
-        .navbar-nav .nav-link {
-            color: var(--text-secondary) !important;
-            transition: var(--transition);
-            font-weight: 500;
-        }
-        .navbar-nav .nav-link:hover {
-            color: var(--primary-light) !important;
-        }
-        .navbar-nav .nav-link.active {
-            color: var(--primary-light) !important;
-            border-bottom: 2px solid var(--primary-light);
-        }
-        header {
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 1.5rem !important;
-        }
-        .container {
-            max-width: 1200px;
-        }
-    </style>
 </head>
-<body style="background-color: var(--bg-primary);">
+<body class="bg-primary-900 text-paper">
 
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(135deg, var(--primary-dark), var(--primary));">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="../../index.html">Course Dashboard</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link active" href="list.html">Assignments</a></li>
-            <li class="nav-item"><a class="nav-link" href="../weekly/list.html">Weekly</a></li>
-            <li class="nav-item"><a class="nav-link" href="../resources/list.html">Resources</a></li>
-            <li class="nav-item"><a class="nav-link" href="../discussion/board.html">Discussion</a></li>
-            <li class="nav-item"><a class="nav-link" href="../admin/manage_users.html">Admin</a></li>
-          </ul>
-        </div>
-      </div>
+    <nav class="flex items-center justify-between bg-gradient-to-r from-primary-800 to-primary px-6 py-4 shadow-lg">
+      <a class="text-2xl font-bold text-white tracking-wide" href="../../index.html">Course Dashboard</a>
+      <ul class="flex gap-8">
+        <li><a class="text-gray-200 font-medium hover:text-white transition border-b-2 border-primary-400" href="list.html">Assignments</a></li>
+        <li><a class="text-gray-200 font-medium hover:text-white transition" href="../weekly/list.html">Weekly</a></li>
+        <li><a class="text-gray-200 font-medium hover:text-white transition" href="../resources/list.html">Resources</a></li>
+        <li><a class="text-gray-200 font-medium hover:text-white transition" href="../discussion/board.html">Discussion</a></li>
+        <li><a class="text-gray-200 font-medium hover:text-white transition" href="../admin/manage_users.html">Admin</a></li>
+      </ul>
     </nav>
 
-    <!-- TODO: Create a 'header' with a main heading ('h1') "Course Assignments". -->
-    <header class="container py-4">
-        <h1>Course Assignments</h1>
+    <!-- Header -->
+    <header class="max-w-6xl mx-auto px-6 py-8 border-b-2 border-primary">
+        <h1 class="text-4xl font-bold text-white mb-2">Course Assignments</h1>
     </header>
 
     <!-- TODO: Create the 'main' content area. -->
-    <main class="assignment-container container py-4 pb-5">
+    <main class="max-w-6xl mx-auto px-6 py-8">
         <!-- TODO: Create a 'section' to contain the list of assignments. -->
-        <section id="assignment-list-section" class="assignment-list">
+        <section id="assignment-list-section" class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <!-- TODO: Add 2-3 dummy assignment entries using the structure below. -->
 
             <!-- Example Assignment 1: -->
             <!-- TODO: Use an 'article' element for each assignment. -->
-            <article class="assignment-card">
-                <h2>Assignment 1: HTML Basics</h2>
-                <div class="meta-row" aria-hidden="true">
-                    <span class="badge">Open</span>
-                    <span class="due-pill">Due: 2023-09-30</span>
+            <article class="bg-primary-800 border-l-4 border-gold rounded-lg p-6 shadow-md hover:shadow-lg transition">
+                <h2 class="text-xl font-bold text-white mb-3">Assignment 1: HTML Basics</h2>
+                <div class="flex gap-3 mb-3">
+                    <span class="bg-primary-600 text-white text-xs font-semibold px-3 py-1 rounded-full">Open</span>
+                    <span class="text-gray-300 text-sm">Due: 2023-09-30</span>
                 </div>
-                <p>This assignment covers the basics of HTML, including structure, elements, and attributes.</p>
-                <div class="assignment-footer">
-                    <div class="meta-left">
-                        <div class="progress" aria-hidden="true"><span style="width:35%"></span></div>
+                <p class="text-gray-300 mb-4">This assignment covers the basics of HTML, including structure, elements, and attributes.</p>
+                <div class="flex items-center justify-between">
+                    <div class="w-32 h-2 bg-primary-700 rounded-full">
+                        <div class="h-full bg-gold rounded-full" style="width:35%"></div>
                     </div>
-                    <div class="meta-right">
-                        <a href="assignment-detail.html" class="btn btn--primary" data-emoji="🔗">View Details</a>
-                    </div>
+                    <a href="assignment-detail.html" class="bg-gold hover:bg-accent text-white font-semibold px-4 py-2 rounded-lg transition">View Details</a>
                 </div>
             </article>
             <!-- End of article. -->
 
             <!-- Example Assignment 2: -->
             <!-- TODO: Create a second 'article' for another assignment with the same structure. -->
-            <article class="assignment-card">
-                <h2>Assignment 2: CSS Fundamentals</h2>
-                <div class="meta-row" aria-hidden="true">
-                    <span class="badge" style="background: color-mix(in oklab, var(--accent-teal) 14%, var(--btn-dark-1));">Open</span>
-                    <span class="due-pill">Due: 2023-10-15</span>
+            <article class="bg-primary-800 border-l-4 border-gold rounded-lg p-6 shadow-md hover:shadow-lg transition">
+                <h2 class="text-xl font-bold text-white mb-3">Assignment 2: CSS Fundamentals</h2>
+                <div class="flex gap-3 mb-3">
+                    <span class="bg-universityGreen-600 text-white text-xs font-semibold px-3 py-1 rounded-full">Open</span>
+                    <span class="text-gray-300 text-sm">Due: 2023-10-15</span>
                 </div>
-                <p>This assignment focuses on the fundamentals of CSS, including selectors, properties, and styling techniques.</p>
-                <div class="assignment-footer">
-                    <div class="meta-left">
-                        <div class="progress" aria-hidden="true"><span style="width:62%"></span></div>
+                <p class="text-gray-300 mb-4">This assignment focuses on the fundamentals of CSS, including selectors, properties, and styling techniques.</p>
+                <div class="flex items-center justify-between">
+                    <div class="w-32 h-2 bg-primary-700 rounded-full">
+                        <div class="h-full bg-universityGreen-500 rounded-full" style="width:62%"></div>
                     </div>
-                    <div class="meta-right">
-                        <a href="assignment-detail.html" class="btn btn--primary" data-emoji="🔗">View Details</a>
-                    </div>
+                    <a href="assignment-detail.html" class="bg-gold hover:bg-accent text-white font-semibold px-4 py-2 rounded-lg transition">View Details</a>
                 </div>
             </article>
             <!-- End of article. -->
@@ -129,7 +82,6 @@
     </main>
     <!-- End of main. -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="list.js" defer></script>
 </body>
 </html>
