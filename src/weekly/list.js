@@ -43,8 +43,8 @@ function createWeekArticle(week) {
     // 4. Details Link (a)
     const aLink = document.createElement('a');
     aLink.classList.add('details-link');
-    // Set the href with the week's ID in the query string
-    aLink.href = `detail.html?weekId=${week.id}`; 
+    // Set the href with the week's ID in the query string (point to 'details.html')
+    aLink.href = `details.html?weekId=${week.id}`; 
     aLink.textContent = 'View Details & Discussion →';
 
     // Assemble the article
@@ -66,8 +66,8 @@ function createWeekArticle(week) {
  */
 async function loadWeeks() {
     try {
-        // 1. Fetch data from 'weeks.json'
-        const response = await fetch('weeks.json');
+    // 1. Fetch data from the API folder 'api/weeks.json'
+    const response = await fetch('api/weeks.json');
         
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -85,8 +85,13 @@ async function loadWeeks() {
         // 4. Loop, create, and append
         if (weeks && weeks.length > 0) {
             weeks.forEach(week => {
-                const weekArticle = createWeekArticle(week);
-                listSection.appendChild(weekArticle);
+                    // Ensure the details link points to the correct page and uses the week id
+                    // createWeekArticle builds the article including the details link
+                    const weekArticle = createWeekArticle(week);
+                    // adjust details link to point to 'details.html' (file name in repo)
+                    const detailsLink = weekArticle.querySelector('.details-link');
+                    if (detailsLink) detailsLink.href = `details.html?weekId=${week.id}`;
+                    listSection.appendChild(weekArticle);
             });
         } else {
             // Display message if no weeks are loaded

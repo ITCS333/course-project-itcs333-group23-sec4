@@ -6,15 +6,37 @@
     
     <title>Week Details</title>
 
-    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../common/styles.css">
 </head>
 <body>
-    <header>
-        <h1 id="week-title-heading">Week 1: Introduction to HTML (Loading...)</h1>
-        <a href="list.html">← Back to Weekly Breakdown</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="../../index.html">Course Dashboard</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="../assignments/list.html">Assignments</a></li>
+            <li class="nav-item"><a class="nav-link active" href="list.html">Weekly</a></li>
+            <li class="nav-item"><a class="nav-link" href="../resources/list.html">Resources</a></li>
+            <li class="nav-item"><a class="nav-link" href="../discussion/board.html">Discussion</a></li>
+            <li class="nav-item"><a class="nav-link" href="../admin/manage_users.html">Admin</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="container py-3">
+        <div class="d-flex align-items-center">
+            <h1 id="week-title-heading" class="me-auto">Week 1: Introduction to HTML (Loading...)</h1>
+            <a href="list.html" class="btn btn-link">← Back to Weekly Breakdown</a>
+        </div>
     </header>
 
-    <main>
+    <main class="container py-4">
 
         <article id="weekly-content">
             <p id="week-start-date">Starts on: YYYY-MM-DD</p>
@@ -70,6 +92,7 @@
 
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="detail.js"></script>
 </body>
 </html>

@@ -14,17 +14,38 @@
     <!-- TODO: Add a title, for now use "Assignment Details". -->
     <title>Assignment Details</title>
 
-    <!-- TODO: Link to your CSS framework or stylesheet. -->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../common/styles.css">
 </head>
-<body class="assignment-container">
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="../../index.html">Course Dashboard</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link active" href="list.html">Assignments</a></li>
+            <li class="nav-item"><a class="nav-link" href="../weekly/list.html">Weekly</a></li>
+            <li class="nav-item"><a class="nav-link" href="../resources/list.html">Resources</a></li>
+            <li class="nav-item"><a class="nav-link" href="../discussion/board.html">Discussion</a></li>
+            <li class="nav-item"><a class="nav-link" href="../admin/manage_users.html">Admin</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
     <!-- TODO: Create a 'header' with a main heading ('h1'). Use a dummy title like "Assignment 1: HTML Basics". -->
-    <header>
+    <header class="container py-4">
         <h1 id="assignment-title">Assignment 1: HTML Basics</h1>
     </header>
 
     <!-- TODO: Create the 'main' content area. -->
-    <main>
+    <main class="assignment-container container py-4 pb-5">
 
         <!-- Section 1: Assignment Information -->
         <!-- Use article and give it the assignment-details class so the CSS applies -->
@@ -96,6 +117,7 @@
 
     </main>
     <!-- End of main. -->
-  <script src="details.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="details.js" defer></script>
 </body>
 </html>

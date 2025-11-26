@@ -207,8 +207,8 @@ async function initializePage() {
     try {
         // 3. Fetch data concurrently
         const [weeksResponse, commentsResponse] = await Promise.all([
-            fetch('weeks.json'),
-            fetch('comments.json')
+            fetch('api/weeks.json'),
+            fetch('api/comments.json')
         ]);
 
         if (!weeksResponse.ok || !commentsResponse.ok) {
@@ -216,11 +216,11 @@ async function initializePage() {
         }
 
         // 4. Parse JSON responses
-        const weeksData = await weeksResponse.json();
-        const commentsData = await commentsResponse.json(); // commentsData is expected to be an object mapping IDs to arrays
+    const weeksData = await weeksResponse.json();
+    const commentsData = await commentsResponse.json(); // commentsData is expected to be an object mapping IDs to arrays
 
-        // 5. Find the correct week
-        const week = weeksData.find(w => w.id === currentWeekId);
+    // 5. Find the correct week (ensure type-safe comparison)
+    const week = weeksData.find(w => String(w.id) === String(currentWeekId));
         
         // 6. Get the correct comments array
         currentComments = commentsData[currentWeekId] || [];

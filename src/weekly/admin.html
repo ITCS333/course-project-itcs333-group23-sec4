@@ -7,47 +7,67 @@
 
     <title>Manage Weekly Breakdown - Admin</title>
 
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Course Dashboard</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="../admin/manage_users.html">Admin</a></li>
+            <li class="nav-item"><a class="nav-link" href="../assignments/list.html">Assignments</a></li>
+            <li class="nav-item"><a class="nav-link" href="list.html">Weekly</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container py-4">
+
     <header>
-        <h1>Manage Weekly Breakdown</h1>
+        <h1 class="h3">Manage Weekly Breakdown</h1>
     </header>
 
     <main>
 
-        <section id="add-edit-week">
-            <h2 id="form-heading">Add a New Week</h2>
+        <section id="add-edit-week" class="mb-4">
+            <h2 id="form-heading" class="h5">Add a New Week</h2>
 
             <form id="week-form" action="#">
                 <input type="hidden" id="week-id" value=""> 
                 
-                <fieldset>
+                <fieldset class="mb-3">
                     <legend>Weekly Details</legend>
 
-                    <div>
+                    <div class="mb-2">
                         <label for="week-title">Week Title:</label>
-                        <input id="week-title" type="text" placeholder="Week 1: Introduction to HTML" required>
+                        <input id="week-title" class="form-control" type="text" placeholder="Week 1: Introduction to HTML" required>
                     </div>
 
-                    <div>
+                    <div class="mb-2">
                         <label for="week-start-date">Start Date:</label>
-                        <input id="week-start-date" type="date" required>
+                        <input id="week-start-date" class="form-control" type="date" required>
                     </div>
 
-                    <div>
+                    <div class="mb-2">
                         <label for="week-description">Description & Notes:</label>
-                        <textarea id="week-description" rows="5"></textarea>
+                        <textarea id="week-description" class="form-control" rows="5"></textarea>
                     </div>
                     
-                    <div>
+                    <div class="mb-2">
                         <label for="week-links">Resource Links (One per line):</label>
-                        <textarea id="week-links" rows="3" placeholder="http://example.com/lecture-notes&#10;http://example.com/exercise-1"></textarea>
+                        <textarea id="week-links" class="form-control" rows="3" placeholder="http://example.com/lecture-notes&#10;http://example.com/exercise-1"></textarea>
                     </div>
 
                     <div>
-                        <button id="add-week" type="submit">Add Week</button>
+                        <button id="add-week" class="btn btn-primary" type="submit">Add Week</button>
                     </div>
                 </fieldset>
             </form>
@@ -55,9 +75,9 @@
 
 
         <section id="current-weeks">
-            <h2>Current Weekly Breakdown</h2>
+            <h2 class="h5">Current Weekly Breakdown</h2>
 
-            <table id="weeks-table">
+            <table id="weeks-table" class="table table-striped">
                 <thead>
                     <tr>
                         <th>Week Title</th>
@@ -74,8 +94,8 @@
                         <td>Basic structure, elements, and attributes.</td>
                         
                         <td>
-                            <button class="edit-btn">Edit</button>
-                            <button class="delete-btn">Delete</button>
+                            <button class="btn btn-outline-secondary btn-sm edit-btn">Edit</button>
+                            <button class="btn btn-danger btn-sm delete-btn">Delete</button>
                         </td>
                     </tr>
                 </tbody>
@@ -83,6 +103,8 @@
         </section>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="admin.js"></script> 
+    </div>
 </body>
 </html>
