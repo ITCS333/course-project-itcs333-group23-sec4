@@ -12,63 +12,119 @@
     <link rel="stylesheet" href="../common/styles.css">
     
     <style>
-      /* Professional login page styling */
+      /* Professional login page styling with modern colors */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
       body.login-page {
         min-height: 100vh;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        overflow: hidden;
       }
       
       .login-container {
         display: flex;
-        height: 100%;
+        height: 100vh;
         width: 100%;
-        max-height: 100vh;
       }
       
+      /* Left Visual Side with Background Image */
       .login-visual {
         flex: 1;
-        background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%),
-                    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="url(%23grid)" /><circle cx="100" cy="100" r="80" fill="rgba(255,255,255,0.05)"/><circle cx="1100" cy="500" r="150" fill="rgba(255,255,255,0.03)"/></svg>');
+        background: linear-gradient(135deg, rgba(13, 110, 253, 0.85) 0%, rgba(6, 48, 147, 0.85) 100%),
+                    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200"><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:rgba(255,255,255,0.1);stop-opacity:1" /><stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:1" /></linearGradient></linearGradient><pattern id="dots" patternUnits="userSpaceOnUse" width="80" height="80"><circle cx="40" cy="40" r="3" fill="rgba(255,255,255,0.15)"/></pattern></defs><rect width="1200" height="1200" fill="url(%23grad1)"/><rect width="1200" height="1200" fill="url(%23dots)"/><circle cx="100" cy="150" r="120" fill="rgba(255,255,255,0.08)"/><circle cx="1100" cy="1050" r="200" fill="rgba(255,255,255,0.06)"/><path d="M 0 600 Q 300 500 600 600 T 1200 600" stroke="rgba(255,255,255,0.05)" stroke-width="2" fill="none"/></svg>');
         background-size: cover;
+        background-position: center;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         color: white;
-        padding: 40px;
+        padding: 60px;
         text-align: center;
-        display: none;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .login-visual::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at top left, rgba(255,255,255,0.1) 0%, transparent 50%),
+                    radial-gradient(circle at bottom right, rgba(0,0,0,0.1) 0%, transparent 50%);
+        pointer-events: none;
+      }
+      
+      .login-visual-content {
+        position: relative;
+        z-index: 2;
+        max-width: 450px;
       }
       
       .login-visual h2 {
-        font-size: 2.5rem;
-        font-weight: 700;
+        font-size: 3rem;
+        font-weight: 800;
         margin-bottom: 20px;
+        text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        letter-spacing: -0.5px;
       }
       
-      .login-visual p {
-        font-size: 1.1rem;
-        opacity: 0.9;
-        max-width: 400px;
-        line-height: 1.6;
+      .login-visual .subtitle {
+        font-size: 1.2rem;
+        opacity: 0.95;
+        line-height: 1.7;
+        margin-bottom: 30px;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.2);
       }
       
+      .login-visual-icon {
+        font-size: 4rem;
+        margin-bottom: 20px;
+        opacity: 0.95;
+        animation: float 3s ease-in-out infinite;
+      }
+      
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+      }
+      
+      /* Right Form Side */
       .login-form-container {
         flex: 1;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 40px;
-        background: white;
+        padding: 60px;
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .login-form-container::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(13, 110, 253, 0.08) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
       }
       
       .login-main {
         width: 100%;
         max-width: 420px;
+        position: relative;
+        z-index: 2;
       }
       
       .login-section {
@@ -76,16 +132,18 @@
       }
       
       .login-title {
-        font-size: 2rem;
-        font-weight: 700;
-        color: #333;
-        margin-bottom: 10px;
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: #1a1a2e;
+        margin-bottom: 8px;
+        letter-spacing: -0.5px;
       }
       
       .login-subtitle {
-        color: #999;
-        margin-bottom: 30px;
+        color: #6c757d;
+        margin-bottom: 40px;
         font-size: 0.95rem;
+        font-weight: 500;
       }
       
       .login-fieldset {
@@ -101,95 +159,196 @@
         width: 100%;
       }
       
+      .form-group {
+        margin-bottom: 20px;
+        text-align: left;
+      }
+      
       .login-label {
         display: block;
-        text-align: left;
-        font-weight: 600;
-        color: #333;
-        margin-bottom: 8px;
-        margin-top: 15px;
+        font-weight: 700;
+        color: #2c3e50;
+        margin-bottom: 10px;
+        font-size: 0.95rem;
+        letter-spacing: 0.3px;
       }
       
       .login-input {
         width: 100%;
-        padding: 12px 15px;
-        border: 2px solid #e0e0e0;
-        border-radius: 6px;
+        padding: 14px 18px;
+        border: 2px solid #e0e6ed;
+        border-radius: 10px;
         font-size: 1rem;
-        transition: border-color 0.3s ease;
-        background: #f9f9f9;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background: #ffffff;
+        color: #1a1a2e;
+        font-weight: 500;
+      }
+      
+      .login-input::placeholder {
+        color: #adb5bd;
+        font-weight: 400;
       }
       
       .login-input:focus {
         outline: none;
-        border-color: #667eea;
-        background: white;
-        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        border-color: #0d6efd;
+        background: #ffffff;
+        box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.15);
+        transform: translateY(-2px);
+      }
+      
+      .login-input:hover:not(:focus) {
+        border-color: #0d6efd;
       }
       
       .login-button {
         width: 100%;
-        padding: 12px;
-        margin-top: 25px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 14px 24px;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        background: linear-gradient(135deg, #0d6efd 0%, #0b5ed7 100%);
         color: white;
         border: none;
-        border-radius: 6px;
-        font-weight: 600;
+        border-radius: 10px;
+        font-weight: 700;
         font-size: 1rem;
         cursor: pointer;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 8px 24px rgba(13, 110, 253, 0.3);
+        letter-spacing: 0.5px;
       }
       
       .login-button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 32px rgba(13, 110, 253, 0.45);
+        background: linear-gradient(135deg, #0b5ed7 0%, #0a58ca 100%);
       }
       
       .login-button:active {
-        transform: translateY(0);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+      }
+      
+      .login-button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+      }
+      
+      .login-divider {
+        display: flex;
+        align-items: center;
+        margin: 30px 0 20px;
+        gap: 15px;
+        color: #adb5bd;
+        font-size: 0.85rem;
+      }
+      
+      .login-divider::before,
+      .login-divider::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: #e0e6ed;
+      }
+      
+      .signup-link {
+        color: #6c757d;
+        font-size: 0.95rem;
+      }
+      
+      .signup-link a {
+        color: #0d6efd;
+        text-decoration: none;
+        font-weight: 700;
+        transition: color 0.2s ease;
+      }
+      
+      .signup-link a:hover {
+        color: #0b5ed7;
+        text-decoration: underline;
       }
       
       #message-container {
-        margin-top: 15px;
-        padding: 12px;
-        border-radius: 6px;
+        margin-top: 20px;
+        padding: 14px 16px;
+        border-radius: 8px;
         font-size: 0.9rem;
         display: none;
+        font-weight: 500;
+        border: 2px solid;
+        animation: slideIn 0.3s ease;
+      }
+      
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
       
       #message-container.success {
-        background: #d4edda;
-        color: #155724;
-        border: 1px solid #c3e6cb;
-        display: block;
+        background: #d1e7dd;
+        color: #0f5132;
+        border-color: #badbcc;
       }
       
       #message-container.error {
         background: #f8d7da;
-        color: #721c24;
-        border: 1px solid #f5c6cb;
-        display: block;
+        color: #842029;
+        border-color: #f5c2c7;
       }
       
-      /* Responsive: hide visual on small screens */
+      /* Responsive: mobile layout */
       @media (max-width: 768px) {
         .login-container {
           flex-direction: column;
         }
         
         .login-visual {
-          display: none !important;
+          display: none;
         }
         
         .login-form-container {
-          padding: 20px;
+          padding: 30px 20px;
           min-height: 100vh;
+          background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        }
+        
+        .login-title {
+          font-size: 1.8rem;
+        }
+        
+        .login-visual h2 {
+          font-size: 2rem;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .login-form-container {
+          padding: 20px;
+        }
+        
+        .login-main {
+          max-width: 100%;
         }
         
         .login-title {
           font-size: 1.5rem;
+        }
+        
+        .login-subtitle {
+          font-size: 0.9rem;
+        }
+        
+        .login-button {
+          padding: 12px 20px;
+          font-size: 0.95rem;
         }
       }
     </style>
@@ -199,31 +358,44 @@
     <div class="login-container">
       <!-- Visual side (hidden on mobile) -->
       <div class="login-visual">
-        <h2>Welcome Back</h2>
-        <p>Access your course materials, assignments, and discussions all in one place.</p>
+        <div class="login-visual-content">
+          <div class="login-visual-icon">📚</div>
+          <h2>Learn & Grow</h2>
+          <p class="subtitle">Access your comprehensive course platform. Manage assignments, track progress, and collaborate with peers.</p>
+        </div>
       </div>
       
       <!-- Form side -->
       <div class="login-form-container">
         <main class="login-main">
           <section class="login-section">
-            <h1 class="login-title">Login</h1>
-            <p class="login-subtitle">Enter your credentials to continue</p>
+            <h1 class="login-title">Welcome</h1>
+            <p class="login-subtitle">Sign in to your course account</p>
             
             <form action="#" class="login-form" id="login-form" novalidate>
               <fieldset class="login-fieldset">
                 <legend class="login-legend">Secure Login</legend>
 
-                <label for="email" class="login-label">Email Address</label>
-                <input type="email" id="email" name="email" required class="login-input" placeholder="you@example.com">
+                <div class="form-group">
+                  <label for="email" class="login-label">Email Address</label>
+                  <input type="email" id="email" name="email" required class="login-input" placeholder="name@example.com">
+                </div>
 
-                <label for="password" class="login-label">Password</label>
-                <input type="password" id="password" name="password" required minlength="8" class="login-input" placeholder="••••••••">
+                <div class="form-group">
+                  <label for="password" class="login-label">Password</label>
+                  <input type="password" id="password" name="password" required minlength="8" class="login-input" placeholder="••••••••">
+                </div>
 
-                <button type="submit" id="login" class="login-button">Log In</button>
+                <button type="submit" id="login" class="login-button">Sign In</button>
               </fieldset>
 
               <div id="message-container"></div>
+              
+              <div class="login-divider">or</div>
+              
+              <div class="signup-link">
+                Don't have an account? <a href="#">Request access</a>
+              </div>
             </form>
           </section>
         </main>
