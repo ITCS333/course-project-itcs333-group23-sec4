@@ -1,0 +1,14 @@
+{
+  "name": "course-project-itcs333-group23-sec4",
+  "version": "1.0.0",
+  "description": "Course project - Tailwind migration",
+  "scripts": {
+    "build:css": "tailwindcss -i ./common/tailwind.css -o ./common/dist/styles.css --minify",
+    "watch:css": "tailwindcss -i ./common/tailwind.css -o ./common/dist/styles.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0",
+    "postcss": "^8.4.0",
+    "autoprefixer": "^10.4.0"
+  }
+}

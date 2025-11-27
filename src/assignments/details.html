@@ -14,17 +14,35 @@
     <!-- TODO: Add a title, for now use "Assignment Details". -->
     <title>Assignment Details</title>
 
-    <!-- TODO: Link to your CSS framework or stylesheet. -->
-    <link rel="stylesheet" href="../common/styles.css">
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="../common/dist/styles.css">
 </head>
-<body class="assignment-container">
+<body class="bg-primary-900 text-paper">
+
+    <!-- Navigation Bar -->
+    <nav class="flex items-center justify-between bg-gradient-to-r from-primary-800 to-primary px-6 py-4 shadow-lg">
+      <a class="text-2xl font-bold text-white tracking-wide" href="../../index.html">Course Dashboard</a>
+      <ul class="flex gap-8">
+        <li><a class="text-gray-200 font-medium hover:text-white transition border-b-2 border-primary-400" href="list.html">Assignments</a></li>
+        <li><a class="text-gray-200 font-medium hover:text-white transition" href="../weekly/list.html">Weekly</a></li>
+        <li><a class="text-gray-200 font-medium hover:text-white transition" href="../resources/list.html">Resources</a></li>
+        <li><a class="text-gray-200 font-medium hover:text-white transition" href="../discussion/board.html">Discussion</a></li>
+        <li><a class="text-gray-200 font-medium hover:text-white transition" href="../admin/manage_users.html">Admin</a></li>
+      </ul>
+    </nav>
+
+    <!-- Header -->
+    <header class="max-w-6xl mx-auto px-6 py-8 border-b-2 border-primary">
+      </div>
+    </nav>
+
     <!-- TODO: Create a 'header' with a main heading ('h1'). Use a dummy title like "Assignment 1: HTML Basics". -->
-    <header>
+    <header class="container py-4">
         <h1 id="assignment-title">Assignment 1: HTML Basics</h1>
     </header>
 
     <!-- TODO: Create the 'main' content area. -->
-    <main>
+    <main class="assignment-container container py-4 pb-5">
 
         <!-- Section 1: Assignment Information -->
         <!-- Use article and give it the assignment-details class so the CSS applies -->
@@ -96,6 +114,7 @@
 
     </main>
     <!-- End of main. -->
-  <script src="details.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="details.js" defer></script>
 </body>
 </html>
