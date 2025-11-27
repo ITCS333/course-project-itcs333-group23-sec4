@@ -243,7 +243,6 @@ function handleTableClick(event) {
 
 
 /**
- * TODO: Implement the loadAndInitialize function.
  * This function needs to be 'async'.
  * It should:
  * 1. Use `fetch()` to get data from 'weeks.json'.

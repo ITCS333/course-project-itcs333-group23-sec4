@@ -238,7 +238,6 @@ async function initializePage() {
             }
 
         } else {
-            // 8. Week not found
             weekTitleHeading.textContent = `Error: Week content for ID "${currentWeekId}" not found.`;
         }
 

@@ -47,20 +47,40 @@ function createAssignmentArticle(assignment) {
  * - Append the returned <article> element to `listSection`.
  */
 async function loadAssignments() {
-  // fetch assignments from the local api folder
-  const response = await fetch('api/assignments.json');
-  const assignments = await response.json();
+  try {
+    // fetch assignments from the local api folder
+    const response = await fetch('api/assignments.json');
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const assignments = await response.json();
 
-  if (!listSection) return; // guard if section is missing
+    if (!listSection) return; // guard if section is missing
 
-  listSection.innerHTML = '';
-  assignments.forEach(assignment => {
-    const article = createAssignmentArticle(assignment);
-    // ensure the details link points to the details page with id
-    const link = article.querySelector('a');
-    if (link) link.setAttribute('href', `details.html?id=${assignment.id}`);
-    listSection.appendChild(article);
-  });
+    listSection.innerHTML = '';
+    if (!assignments || assignments.length === 0) {
+      const empty = document.createElement('p');
+      empty.className = 'text-gray-300';
+      empty.textContent = 'No assignments available.';
+      listSection.appendChild(empty);
+      return;
+    }
+
+    assignments.forEach(assignment => {
+      const article = createAssignmentArticle(assignment);
+      // ensure the details link points to the details page with id
+      const link = article.querySelector('a');
+      if (link) link.setAttribute('href', `details.html?id=${assignment.id}`);
+      listSection.appendChild(article);
+    });
+  } catch (err) {
+    console.error('Failed to load assignments:', err);
+    if (listSection) {
+      listSection.innerHTML = '';
+      const errEl = document.createElement('p');
+      errEl.className = 'text-red-400';
+      errEl.textContent = 'Error loading assignments.';
+      listSection.appendChild(errEl);
+    }
+  }
 }
 
 // --- Initial Page Load ---

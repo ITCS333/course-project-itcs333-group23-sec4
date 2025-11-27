@@ -615,7 +615,6 @@ function validateDate($date) {
 
 
 /**
- * Helper function to sanitize input
  */
 function sanitizeInput($data) {
     // TODO: Trim whitespace
