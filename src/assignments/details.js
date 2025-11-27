@@ -195,10 +195,12 @@ async function initializePage() {
     return;
   }
 
-  const assignmentsResponse = await fetch('assignments.json');
+  // fetch assignments and comments from the api subfolder
+  const assignmentsResponse = await fetch('api/assignments.json');
   const assignments = await assignmentsResponse.json();
   const assignment = assignments.find(a => a.id === currentAssignmentId);
 
+  // try to load comments from storage (localStorage) first
   loadCommentsFromStorage();
 
   if (assignment) {

@@ -51,10 +51,10 @@
             <p class="assignment-meta" id="assignment-due-date">Due: 2023-09-30</p>
 
             <h2>Description</h2>
-            <p>This assignment covers the basics of HTML, including structure, elements, and attributes.</p>
+            <p id="assignment-description">This assignment covers the basics of HTML, including structure, elements, and attributes.</p>
 
             <h2>Attached Files &amp; Links</h2>
-                        <ul class="assignment-files">
+                        <ul id="assignment-files-list" class="assignment-files">
                                 <li>
                                     <span><a href="#">assignment-brief.pdf</a></span>
                                     <span class="file-actions">
@@ -102,7 +102,7 @@
                                 <fieldset>
                                         <legend>Ask a Question</legend>
                                         <label for="new-comment">Your Comment:</label>
-                                        <textarea id="new-comment" class="comment-input" required placeholder="Write a helpful question or reply..."></textarea>
+                                <textarea id="new-comment-text" class="comment-input" required placeholder="Write a helpful question or reply..."></textarea>
                                         <div style="display:flex; gap:.5rem; align-items:center; margin-top:.6rem;">
                                             <button type="submit" class="btn btn--primary btn--rounded" data-emoji="💬">Post Comment</button>
                                             <button type="button" class="btn btn--ghost btn--small" data-emoji="📎">Attach</button>

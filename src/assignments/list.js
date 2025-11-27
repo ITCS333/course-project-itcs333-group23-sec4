@@ -47,12 +47,18 @@ function createAssignmentArticle(assignment) {
  * - Append the returned <article> element to `listSection`.
  */
 async function loadAssignments() {
-  const response = await fetch('assignments.json');
+  // fetch assignments from the local api folder
+  const response = await fetch('api/assignments.json');
   const assignments = await response.json();
+
+  if (!listSection) return; // guard if section is missing
 
   listSection.innerHTML = '';
   assignments.forEach(assignment => {
     const article = createAssignmentArticle(assignment);
+    // ensure the details link points to the details page with id
+    const link = article.querySelector('a');
+    if (link) link.setAttribute('href', `details.html?id=${assignment.id}`);
     listSection.appendChild(article);
   });
 }
