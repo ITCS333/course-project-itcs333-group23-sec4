@@ -7,58 +7,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- TODO: Add meta tags for charset and viewport. -->
+    <!-- Meta tags for charset and viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- TODO: Add a title. You can make it dynamic later, but for now, use "Resource Details". -->
+    <!-- Title -->
+    <title>Resource Details</title>
 
-    <!-- TODO: Link to your CSS framework or stylesheet. -->
+    <!-- Link to CSS stylesheet -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- TODO: Create a 'header' with a main heading ('h1'). You can use a dummy title like "Chapter 1 Notes". -->
+    <!-- Header with main heading -->
+    <header>
+        <h1 id="resource-title">Chapter 1 Notes</h1>
+    </header>
 
-    <!-- TODO: Create the 'main' content area. -->
+    <!-- Main content area -->
+    <main>
 
         <!-- Section 1: Resource Information -->
-        <!-- TODO: Use an 'article' to display the main resource information. -->
-            <!-- TODO: Add a paragraph ('p') for the resource description (use dummy text). -->
-            <!-- TODO: Add an anchor tag ('a') that links to the actual resource URL (use a dummy link like "https://example.com").
-                 - Text should be "Access Resource Material".
-                 - Consider adding 'target="_blank"' to open it in a new tab. -->
-        <!-- End of article. -->
+        <article>
+            <!-- Paragraph for resource description -->
+            <p id="resource-description">This resource covers the fundamental concepts of web development, including HTML structure, CSS styling basics, and an introduction to JavaScript. Students will learn how to create their first web pages and understand the relationship between these core technologies.</p>
+            
+            <!-- Anchor tag linking to resource URL -->
+            <a id="resource-link" href="https://example.com" target="_blank">Access Resource Material</a>
+        </article>
 
         <!-- Section 2: Discussion Forum -->
-        <!-- TODO: Create a 'section' for the discussion, with an 'id' of "discussion-forum". -->
-            <!-- TODO: Add a sub-heading ('h2') "Discussion". -->
+        <section id="discussion-forum">
+            <!-- Sub-heading -->
+            <h2>Discussion</h2>
 
             <!-- Subsection 2.1: Existing Comments -->
-            <!-- TODO: Add a container (like a 'div') for the list of comments. -->
-                <!-- TODO: Add 1-2 dummy comments to show the structure. -->
+            <div id="comment-list">
+                <!-- Example Comment 1 -->
+                <article>
+                    <!-- Comment text -->
+                    <p>This was very helpful, thanks! The examples made it easy to understand the differences between HTML and CSS.</p>
+                    <!-- Comment footer with author -->
+                    <footer>Posted by: Jane Doe</footer>
+                </article>
 
-                <!-- Example Comment 1: -->
-                <!-- TODO: Use an 'article' for each comment. -->
-                    <!-- TODO: Use a 'p' for the comment text (e.g., "This was very helpful, thanks!"). -->
-                    <!-- TODO: Use a 'footer' to show the author (e.g., "Posted by: Jane Doe"). -->
-                <!-- End of comment article. -->
-
-                <!-- Example Comment 2: -->
-                <!-- TODO: Create another 'article' for a second comment. -->
-            <!-- End of comment list container. -->
+                <!-- Example Comment 2 -->
+                <article>
+                    <!-- Comment text -->
+                    <p>Could you please add more examples about JavaScript functions? I'm still a bit confused about how they work.</p>
+                    <!-- Comment footer with author -->
+                    <footer>Posted by: John Smith</footer>
+                </article>
+            </div>
 
             <!-- Subsection 2.2: Add a Comment Form -->
-            <!-- TODO: Create a 'form' for users to post new comments. Action can be '#'. -->
-                <!-- TODO: Use a 'fieldset' to group the controls. -->
-                    <!-- TODO: Add a 'legend', e.g., "Leave a Comment". -->
+            <form id="comment-form" action="#">
+                <!-- Fieldset to group controls -->
+                <fieldset>
+                    <!-- Legend -->
+                    <legend>Leave a Comment</legend>
 
-                    <!-- TODO: Add a 'label' and 'textarea' for the comment box.
-                         - label 'for': "new-comment"
-                         - textarea 'id': "new-comment", required -->
+                    <!-- Label and textarea for comment box -->
+                    <label for="new-comment">Your Comment:</label>
+                    <textarea id="new-comment" name="new-comment" required></textarea>
                     
-                    <!-- TODO: Add a 'button' to submit the comment.
-                         - type="submit", Text: "Post Comment" -->
-                <!-- End of fieldset. -->
-            <!-- End of form. -->
-        <!-- End of discussion section. -->
+                    <!-- Submit button -->
+                    <button type="submit">Post Comment</button>
+                </fieldset>
+            </form>
+        </section>
 
-    <!-- End of main. -->
+    </main>
+
+    <!-- Link to JavaScript file -->
+    <script src="details.js" defer></script>
 </body>
 </html>
