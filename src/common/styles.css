@@ -2709,12 +2709,13 @@ body.manage-users-page {
 
 /* Card body with description and metadata */
 .professional-card-body {
-  padding: 16px 24px;
+  padding: 12px 24px 16px 24px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  background: transparent;
-  border: none;
+  background: transparent !important;
+  border: none !important;
+  gap: 8px;
 }
 
 .professional-card-description {
