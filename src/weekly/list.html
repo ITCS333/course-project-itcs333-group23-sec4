@@ -3,94 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Weekly Course Breakdown</title>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Weekly Course Breakdown - ITCS 333</title>
     <link rel="stylesheet" href="../common/dist/styles.css">
-    <style>
-        body {
-            background-color: var(--bg-primary) !important;
-            color: var(--text-primary) !important;
-        }
-        .navbar-dark {
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary)) !important;
-            box-shadow: var(--shadow-md);
-        }
-        .navbar-brand {
-            font-weight: 700;
-            font-size: 1.35rem;
-            color: white !important;
-            letter-spacing: 0.5px;
-        }
-        .navbar-nav .nav-link {
-            color: var(--text-secondary) !important;
-            transition: var(--transition);
-            font-weight: 500;
-        }
-        .navbar-nav .nav-link:hover {
-            color: var(--primary-light) !important;
-        }
-        .navbar-nav .nav-link.active {
-            color: var(--primary-light) !important;
-            border-bottom: 2px solid var(--primary-light);
-        }
-        header {
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 1.5rem !important;
-        }
-    </style>
+    <link rel="stylesheet" href="../common/styles.css">
 </head>
-<body style="background-color: var(--bg-primary);">
-
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(135deg, var(--primary-dark), var(--primary));">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="../../index.html">Course Dashboard</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="../assignments/list.html">Assignments</a></li>
-            <li class="nav-item"><a class="nav-link active" href="list.html">Weekly</a></li>
-            <li class="nav-item"><a class="nav-link" href="../resources/list.html">Resources</a></li>
-            <li class="nav-item"><a class="nav-link" href="../discussion/board.html">Discussion</a></li>
-            <li class="nav-item"><a class="nav-link" href="../admin/manage_users.html">Admin</a></li>
-          </ul>
-        </div>
-      </div>
+<body class="bg-primary-900 text-paper">
+    <!-- Navigation -->
+    <nav class="professional">
+        <div class="brand">📚 ITCS 333</div>
+        <ul>
+            <li><a href="../assignments/list.html">Assignments</a></li>
+            <li><a href="list.html">Weekly</a></li>
+            <li><a href="../resources/list.html">Resources</a></li>
+            <li><a href="../discussion/board.html">Discussion</a></li>
+            <li><a href="../admin/manage_users.html">Admin</a></li>
+        </ul>
+        <div class="site-actions"></div>
     </nav>
 
-    <header class="container py-3">
-        <div class="d-flex align-items-center">
-            <h1 class="me-auto">Weekly Course Breakdown</h1>
-            <a href="admin.html" class="btn btn-outline-secondary">Admin Login</a>
+    <!-- Hero Section -->
+    <section class="hero-premium">
+        <div class="hero-premium-content">
+            <h1>Weekly Breakdown</h1>
+            <p>Follow the course week-by-week. Each week includes learning objectives, content materials, and discussion topics to reinforce your understanding.</p>
+            <div class="hero-cta-buttons">
+                <button class="hero-btn primary" onclick="document.getElementById('weekly-list').scrollIntoView({behavior: 'smooth'})">Browse Weeks</button>
+                <a href="../discussion/board.html" class="hero-btn secondary">💬 Join Discussions</a>
+            </div>
         </div>
-    </header>
+    </section>
 
-    <main class="container py-4">
-        <section id="weekly-list">
-            
-            <article class="week-summary" data-week-id="1">
-                <h2>Week 1: Introduction to HTML</h2>
-                <p class="start-date">Starts on: 2025-09-01</p>
-                <p class="description-snippet">Introduction to web concepts, basic HTML structure, and essential tags. Set up development environment.</p>
-                <a href="detail.html?weekId=1" class="details-link">View Details & Discussion →</a>
+    <main class="assignment-container">
+        <h2 style="margin-bottom: 2rem;">Course Timeline</h2>
+
+        <section id="weekly-list" class="assignment-list">
+            <!-- Week 1 -->
+            <article class="assignment-card professional" data-week-id="1">
+                <div class="professional-card-header">
+                    <div class="professional-card-icon">📖</div>
+                    <div class="professional-card-title-group">
+                        <h2>Week 1: Introduction to HTML</h2>
+                        <div class="badge-group">
+                            <span class="badge-status submitted">✓ Completed</span>
+                            <span class="badge-difficulty easy">Fundamentals</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="professional-card-body">
+                    <p class="professional-card-description">Introduction to web concepts, basic HTML structure, semantic tags, and setting up your development environment.</p>
+                    <div class="professional-card-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Duration</span>
+                            <span class="stat-value">Sep 1-7</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Topics</span>
+                            <span class="stat-value">4</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Resources</span>
+                            <span class="stat-value">8</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="professional-card-footer">
+                    <span class="due-date-pill">Started: Sep 1, 2025</span>
+                    <a href="details.html?weekId=1" class="professional-card-action">View Week</a>
+                </div>
             </article>
 
-            <article class="week-summary" data-week-id="2">
-                <h2>Week 2: CSS Fundamentals</h2>
-                <p class="start-date">Starts on: 2025-09-08</p>
-                <p class="description-snippet">Learning about cascading stylesheets (CSS), selectors, properties, and the box model. Styling basic web elements.</p>
-                <a href="detail.html?weekId=2" class="details-link">View Details & Discussion →</a>
+            <!-- Week 2 -->
+            <article class="assignment-card professional" data-week-id="2">
+                <div class="professional-card-header">
+                    <div class="professional-card-icon">🎨</div>
+                    <div class="professional-card-title-group">
+                        <h2>Week 2: CSS Fundamentals</h2>
+                        <div class="badge-group">
+                            <span class="badge-status submitted">✓ Completed</span>
+                            <span class="badge-difficulty easy">Fundamentals</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="professional-card-body">
+                    <p class="professional-card-description">Learn CSS selectors, properties, cascading, specificity, and the box model. Style basic web elements.</p>
+                    <div class="professional-card-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Duration</span>
+                            <span class="stat-value">Sep 8-14</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Topics</span>
+                            <span class="stat-value">6</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Resources</span>
+                            <span class="stat-value">12</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="professional-card-footer">
+                    <span class="due-date-pill">Started: Sep 8, 2025</span>
+                    <a href="details.html?weekId=2" class="professional-card-action">View Week</a>
+                </div>
             </article>
 
+            <!-- Week 3 -->
+            <article class="assignment-card professional" data-week-id="3">
+                <div class="professional-card-header">
+                    <div class="professional-card-icon">📦</div>
+                    <div class="professional-card-title-group">
+                        <h2>Week 3: Layout & Flexbox</h2>
+                        <div class="badge-group">
+                            <span class="badge-status submitted">✓ Completed</span>
+                            <span class="badge-difficulty medium">Intermediate</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="professional-card-body">
+                    <p class="professional-card-description">Master Flexbox layout model. Create responsive one-dimensional layouts and align content effectively.</p>
+                    <div class="professional-card-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Duration</span>
+                            <span class="stat-value">Sep 15-21</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Topics</span>
+                            <span class="stat-value">5</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Resources</span>
+                            <span class="stat-value">10</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="professional-card-footer">
+                    <span class="due-date-pill">Started: Sep 15, 2025</span>
+                    <a href="details.html?weekId=3" class="professional-card-action">View Week</a>
+                </div>
+            </article>
+
+            <!-- Week 4 -->
+            <article class="assignment-card professional" data-week-id="4">
+                <div class="professional-card-header">
+                    <div class="professional-card-icon">🔲</div>
+                    <div class="professional-card-title-group">
+                        <h2>Week 4: CSS Grid</h2>
+                        <div class="badge-group">
+                            <span class="badge-status submitted">✓ Completed</span>
+                            <span class="badge-difficulty medium">Intermediate</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="professional-card-body">
+                    <p class="professional-card-description">Learn CSS Grid for two-dimensional layouts. Create complex page designs with rows, columns, and template areas.</p>
+                    <div class="professional-card-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Duration</span>
+                            <span class="stat-value">Sep 22-28</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Topics</span>
+                            <span class="stat-value">5</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Resources</span>
+                            <span class="stat-value">11</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="professional-card-footer">
+                    <span class="due-date-pill">Started: Sep 22, 2025</span>
+                    <a href="details.html?weekId=4" class="professional-card-action">View Week</a>
+                </div>
+            </article>
+
+            <!-- Week 5 -->
+            <article class="assignment-card professional" data-week-id="5">
+                <div class="professional-card-header">
+                    <div class="professional-card-icon">⚙️</div>
+                    <div class="professional-card-title-group">
+                        <h2>Week 5: JavaScript Basics</h2>
+                        <div class="badge-group">
+                            <span class="badge-status pending">📅 Current Week</span>
+                            <span class="badge-difficulty medium">Intermediate</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="professional-card-body">
+                    <p class="professional-card-description">Introduction to JavaScript. Learn variables, data types, operators, control flow, and functions.</p>
+                    <div class="professional-card-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Duration</span>
+                            <span class="stat-value">Oct 1-7</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Topics</span>
+                            <span class="stat-value">7</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Resources</span>
+                            <span class="stat-value">15</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="professional-card-footer">
+                    <span class="due-date-pill">Started: Oct 1, 2025</span>
+                    <a href="details.html?weekId=5" class="professional-card-action">View Week</a>
+                </div>
+            </article>
+
+            <!-- Week 6 -->
+            <article class="assignment-card professional" data-week-id="6">
+                <div class="professional-card-header">
+                    <div class="professional-card-icon">📊</div>
+                    <div class="professional-card-title-group">
+                        <h2>Week 6: DOM Manipulation</h2>
+                        <div class="badge-group">
+                            <span class="badge-status pending">📅 Upcoming</span>
+                            <span class="badge-difficulty hard">Advanced</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="professional-card-body">
+                    <p class="professional-card-description">Master DOM selection, traversal, and manipulation. Create interactive web pages using vanilla JavaScript.</p>
+                    <div class="professional-card-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Duration</span>
+                            <span class="stat-value">Oct 8-14</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Topics</span>
+                            <span class="stat-value">6</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Resources</span>
+                            <span class="stat-value">13</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="professional-card-footer">
+                    <span class="due-date-pill">Starts: Oct 8, 2025</span>
+                    <a href="details.html?weekId=6" class="professional-card-action">View Week</a>
+                </div>
+            </article>
         </section>
     </main>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="list.js"></script>
 
+    <script src="list.js"></script>
+    <script src="../common/theme.js" defer></script>
 </body>
 </html>

@@ -73,7 +73,6 @@ async function loadWeeks() {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         
-        // 2. Parse the JSON response
         let weeks = await response.json();
         
         // Optional: Sort weeks by start date before rendering

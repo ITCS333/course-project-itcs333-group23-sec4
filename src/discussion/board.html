@@ -11,122 +11,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Discussion Board</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../common/dist/styles.css">
-    <style>
-        body {
-            background-color: var(--bg-primary) !important;
-            color: var(--text-primary) !important;
-        }
-        .navbar-dark {
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary)) !important;
-            box-shadow: var(--shadow-md);
-        }
-        .navbar-brand {
-            font-weight: 700;
-            font-size: 1.35rem;
-            color: white !important;
-            letter-spacing: 0.5px;
-        }
-        .navbar-nav .nav-link {
-            color: var(--text-secondary) !important;
-            transition: var(--transition);
-            font-weight: 500;
-        }
-        .navbar-nav .nav-link:hover {
-            color: var(--primary-light) !important;
-        }
-        .navbar-nav .nav-link.active {
-            color: var(--primary-light) !important;
-            border-bottom: 2px solid var(--primary-light);
-        }
-        header {
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 1.5rem !important;
-        }
-    </style>
+    <link rel="stylesheet" href="../../common/dist/styles.css">
+    <!-- Fallback local styles so pages render without Tailwind build -->
+    <link rel="stylesheet" href="../common/styles.css">
 </head>
-<body style="background-color: var(--bg-primary);">
+<body class="bg-primary-900 text-paper">
 
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(135deg, var(--primary-dark), var(--primary));">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="../../index.html">Course Dashboard</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="../assignments/list.html">Assignments</a></li>
-            <li class="nav-item"><a class="nav-link" href="../weekly/list.html">Weekly</a></li>
-            <li class="nav-item"><a class="nav-link" href="../resources/list.html">Resources</a></li>
-            <li class="nav-item"><a class="nav-link active" href="board.html">Discussion</a></li>
-            <li class="nav-item"><a class="nav-link" href="../admin/manage_users.html">Admin</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+        <nav>
+            <div class="brand"><a href="../../index.html">Course Dashboard</a></div>
+            <ul>
+                <li><a href="../assignments/list.html">Assignments</a></li>
+                <li><a href="../weekly/list.html">Weekly</a></li>
+                <li><a href="../resources/list.html">Resources</a></li>
+                <li><a href="board.html">Discussion</a></li>
+                <li><a href="../admin/manage_users.html">Admin</a></li>
+            </ul>
+            <div class="site-actions"></div>
+        </nav>
 
-    <!-- TODO: Create a 'header' with a main heading ('h1') "General Discussion Board". -->
-    <header class="container py-4">
-        <h1>General Discussion Board</h1>
+    <header class="max-w-6xl mx-auto px-6 py-8 border-b-2 border-primary">
+        <h1 class="text-4xl font-bold text-white">General Discussion Board</h1>
+        <p class="text-gray-300 mt-2">Start topics, ask questions, and discuss course material with peers.</p>
     </header>
 
-    <!-- TODO: Create the 'main' content area. -->
+    <main class="max-w-6xl mx-auto px-6 py-8">
 
-        <!-- Section 1: Create a New Topic -->
-        <!-- TODO: Create a 'section' for the "new topic" form. -->
-            <!-- TODO: Add a sub-heading ('h2') "Start a New Topic". -->
+        <!-- Section 1: New Topic Form -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-semibold text-white mb-4">Start a New Topic</h2>
+            <form id="new-topic-form" action="#" class="bg-primary-800 border-l-4 border-gold rounded-lg p-6">
+                <fieldset>
+                    <legend class="sr-only">New Topic Details</legend>
 
-            <!-- TODO: Create a 'form' with an id "new-topic-form". Action can be '#'. -->
-                <!-- TODO: Use a 'fieldset' to group the form controls. -->
-                    <!-- TODO: Add a 'legend', e.g., "New Topic Details". -->
+                    <label for="topic-subject" class="block text-paper font-medium mb-2">Subject</label>
+                    <input id="topic-subject" type="text" required class="w-full mb-4 px-4 py-2 rounded-lg bg-primary-700 text-paper placeholder-gray-400 border-2 border-primary focus:border-gold outline-none" />
 
-                    <!-- TODO: Add a 'label' and 'input' for the topic subject.
-                         - label 'for': "topic-subject"
-                         - input 'id': "topic-subject", type="text", required -->
+                    <label for="topic-message" class="block text-paper font-medium mb-2">Message</label>
+                    <textarea id="topic-message" rows="6" required class="w-full mb-4 px-4 py-3 rounded-lg bg-primary-700 text-paper placeholder-gray-400 border-2 border-primary focus:border-gold outline-none"></textarea>
 
-                    <!-- TODO: Add a 'label' and 'textarea' for the main message.
-                         - label 'for': "topic-message"
-                         - textarea 'id': "topic-message", rows="6", required -->
-
-                    <!-- TODO: Add a 'button' to submit the form.
-                         - id="create-topic", type="submit", Text: "Create Topic" -->
-                <!-- End of fieldset. -->
-            <!-- End of form. -->
-        <!-- End of form section. -->
-
+                    <div class="flex items-center gap-3">
+                        <button id="create-topic" type="submit" class="bg-gold hover:bg-accent text-white font-semibold px-4 py-2 rounded-lg transition">Create Topic</button>
+                        <button type="reset" class="bg-primary-700 text-paper px-3 py-2 rounded-lg border border-primary">Reset</button>
+                    </div>
+                </fieldset>
+            </form>
+        </section>
 
         <!-- Section 2: Existing Topics -->
-        <!-- TODO: Create a 'section' to display the list of current topics. -->
-            <!-- TODO: Add a sub-heading ('h2') "All Topics". -->
-            
-            <!-- TODO: Add a container (like a 'div') to hold the list of topics. -->
-                <!-- TODO: Add 2-3 dummy topics using the structure below. -->
+        <section>
+            <h2 class="text-2xl font-semibold text-white mb-4">All Topics</h2>
 
-                <!-- Example Topic 1: -->
-                <!-- TODO: Use an 'article' for each topic. -->
-                    <!-- TODO: Add a heading ('h3') containing an anchor tag ('a') linking to the detail page.
-                         - The link's 'href' can be "topic-detail.html" for now.
-                         - The link text should be a dummy topic title, e.g., "Question about CSS Flexbox". -->
-                    
-                    <!-- TODO: Use a 'footer' element for metadata. -->
-                        <!-- TODO: Add text like "Posted by: Student Name on YYYY-MM-DD". -->
-                    <!-- End of footer. -->
+            <div id="topic-list-container" class="grid grid-cols-1 gap-6">
+                <!-- Example Topic 1 -->
+                <article class="bg-primary-800 border-l-4 border-primary-600 rounded-lg p-6 shadow-md">
+                    <h3 class="text-xl font-bold text-white mb-2"><a href="topic-detail.html" class="text-gold hover:text-accent">Question about CSS Flexbox</a></h3>
+                    <footer class="text-gray-300 text-sm mb-3">Posted by: Student A on 2025-11-10</footer>
+                    <div class="flex gap-3">
+                        <a href="#" class="text-primary-200 hover:text-white">Edit</a>
+                        <button class="delete-btn text-red-400 hover:text-red-200" data-id="topic_1">Delete</button>
+                    </div>
+                </article>
 
-                    <!-- TODO: Add a container (e.g., a 'div') for action buttons. -->
-                        <!-- TODO: Add an "Edit" button/link. -->
-                        <!-- TODO: Add a "Delete" button/link. -->
-                        <!-- NOTE: For the exercise, you can add these for all topics. In a real app,
-                             these buttons would only be visible to the topic's author or the admin. -->
-                    <!-- End of actions container. -->
-                <!-- End of article. -->
-            
-            <!-- End of topics container. -->
-        <!-- End of list section. -->
+                <!-- Example Topic 2 -->
+                <article class="bg-primary-800 border-l-4 border-primary-600 rounded-lg p-6 shadow-md">
+                    <h3 class="text-xl font-bold text-white mb-2"><a href="topic-detail.html" class="text-gold hover:text-accent">How to structure project folders?</a></h3>
+                    <footer class="text-gray-300 text-sm mb-3">Posted by: Student B on 2025-11-12</footer>
+                    <div class="flex gap-3">
+                        <a href="#" class="text-primary-200 hover:text-white">Edit</a>
+                        <button class="delete-btn text-red-400 hover:text-red-200" data-id="topic_2">Delete</button>
+                    </div>
+                </article>
 
-    <!-- End of main. -->
+                <!-- Example Topic 3 -->
+                <article class="bg-primary-800 border-l-4 border-primary-600 rounded-lg p-6 shadow-md">
+                    <h3 class="text-xl font-bold text-white mb-2"><a href="topic-detail.html" class="text-gold hover:text-accent">Tips for JavaScript fetch() in local files</a></h3>
+                    <footer class="text-gray-300 text-sm mb-3">Posted by: Instructor on 2025-11-15</footer>
+                    <div class="flex gap-3">
+                        <a href="#" class="text-primary-200 hover:text-white">Edit</a>
+                        <button class="delete-btn text-red-400 hover:text-red-200" data-id="topic_3">Delete</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="board.js" defer></script>
+    <script src="../common/theme.js" defer></script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</html>
 </html>

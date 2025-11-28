@@ -15,21 +15,24 @@
     <title>Assignment Details</title>
 
     <!-- Tailwind CSS -->
-    <link rel="stylesheet" href="../common/dist/styles.css">
+    <link rel="stylesheet" href="../../common/dist/styles.css">
+    <!-- Fallback local styles so pages render without Tailwind build -->
+    <link rel="stylesheet" href="../common/styles.css">
 </head>
 <body class="bg-primary-900 text-paper">
 
-    <!-- Navigation Bar -->
-    <nav class="flex items-center justify-between bg-gradient-to-r from-primary-800 to-primary px-6 py-4 shadow-lg">
-      <a class="text-2xl font-bold text-white tracking-wide" href="../../index.html">Course Dashboard</a>
-      <ul class="flex gap-8">
-        <li><a class="text-gray-200 font-medium hover:text-white transition border-b-2 border-primary-400" href="list.html">Assignments</a></li>
-        <li><a class="text-gray-200 font-medium hover:text-white transition" href="../weekly/list.html">Weekly</a></li>
-        <li><a class="text-gray-200 font-medium hover:text-white transition" href="../resources/list.html">Resources</a></li>
-        <li><a class="text-gray-200 font-medium hover:text-white transition" href="../discussion/board.html">Discussion</a></li>
-        <li><a class="text-gray-200 font-medium hover:text-white transition" href="../admin/manage_users.html">Admin</a></li>
-      </ul>
-    </nav>
+        <!-- Navigation Bar -->
+        <nav>
+            <div class="brand"><a href="../../index.html">Course Dashboard</a></div>
+            <ul>
+                <li><a href="list.html">Assignments</a></li>
+                <li><a href="../weekly/list.html">Weekly</a></li>
+                <li><a href="../resources/list.html">Resources</a></li>
+                <li><a href="../discussion/board.html">Discussion</a></li>
+                <li><a href="../admin/manage_users.html">Admin</a></li>
+            </ul>
+            <div class="site-actions"></div>
+        </nav>
 
     <!-- Header -->
     <header class="max-w-6xl mx-auto px-6 py-8 border-b-2 border-primary">
@@ -51,10 +54,10 @@
             <p class="assignment-meta" id="assignment-due-date">Due: 2023-09-30</p>
 
             <h2>Description</h2>
-            <p>This assignment covers the basics of HTML, including structure, elements, and attributes.</p>
+            <p id="assignment-description">This assignment covers the basics of HTML, including structure, elements, and attributes.</p>
 
             <h2>Attached Files &amp; Links</h2>
-                        <ul class="assignment-files">
+                        <ul id="assignment-files-list" class="assignment-files">
                                 <li>
                                     <span><a href="#">assignment-brief.pdf</a></span>
                                     <span class="file-actions">
@@ -102,11 +105,11 @@
                                 <fieldset>
                                         <legend>Ask a Question</legend>
                                         <label for="new-comment">Your Comment:</label>
-                                        <textarea id="new-comment" class="comment-input" required placeholder="Write a helpful question or reply..."></textarea>
-                                        <div style="display:flex; gap:.5rem; align-items:center; margin-top:.6rem;">
+                                <textarea id="new-comment-text" class="comment-input" required placeholder="Write a helpful question or reply..."></textarea>
+                                        <div class="form-actions">
                                             <button type="submit" class="btn btn--primary btn--rounded" data-emoji="💬">Post Comment</button>
                                             <button type="button" class="btn btn--ghost btn--small" data-emoji="📎">Attach</button>
-                                            <span style="color:var(--muted); font-size:.9rem; margin-left:auto;">Be kind — stay on topic</span>
+                                            <span style="color:var(--text-muted); font-size:.9rem; margin-left:auto;">Be kind — stay on topic</span>
                                         </div>
                                 </fieldset>
                         </form>
@@ -116,5 +119,6 @@
     <!-- End of main. -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="details.js" defer></script>
+    <script src="../common/theme.js" defer></script>
 </body>
 </html>

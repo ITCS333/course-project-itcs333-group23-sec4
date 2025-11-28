@@ -67,7 +67,8 @@ function renderAssignmentDetails(assignment) {
   assignment.files.forEach(file => {
     const li = document.createElement('li');
     // Make file downloadable (assume files are in assets or api folder)
-    li.innerHTML = `<a href="../api/${file}" download>${file}</a>`;
+    // files are located in the assignments `api` folder relative to this page
+    li.innerHTML = `<a href="api/${file}" download>${file}</a>`;
     assignmentFilesList.appendChild(li);
   });
 }
@@ -194,20 +195,28 @@ async function initializePage() {
     console.error('No assignment ID found in URL');
     return;
   }
+  try {
+    // fetch assignments from the api subfolder
+    const assignmentsResponse = await fetch('api/assignments.json');
+    if (!assignmentsResponse.ok) throw new Error(`HTTP ${assignmentsResponse.status}`);
+    const assignments = await assignmentsResponse.json();
+    const assignment = assignments.find(a => String(a.id) === String(currentAssignmentId));
 
-  const assignmentsResponse = await fetch('assignments.json');
-  const assignments = await assignmentsResponse.json();
-  const assignment = assignments.find(a => a.id === currentAssignmentId);
+    // try to load comments from storage (localStorage) first
+    loadCommentsFromStorage();
 
-  loadCommentsFromStorage();
-
-  if (assignment) {
-    renderAssignmentDetails(assignment);
-    renderComments();
-    commentForm.addEventListener('submit', handleAddComment);
-    commentList.addEventListener('click', handleCommentListClick);
-  } else {
-    console.error('Assignment not found');
+    if (assignment) {
+      renderAssignmentDetails(assignment);
+      renderComments();
+      if (commentForm) commentForm.addEventListener('submit', handleAddComment);
+      if (commentList) commentList.addEventListener('click', handleCommentListClick);
+    } else {
+      console.error('Assignment not found for id', currentAssignmentId);
+      if (assignmentTitle) assignmentTitle.textContent = 'Assignment not found';
+    }
+  } catch (err) {
+    console.error('Failed to load assignment details:', err);
+    if (assignmentTitle) assignmentTitle.textContent = 'Error loading assignment';
   }
 }
 
