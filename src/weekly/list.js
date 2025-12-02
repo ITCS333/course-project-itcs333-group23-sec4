@@ -1,14 +1,11 @@
 /*
   Requirement: Populate the "Weekly Course Breakdown" list page.
-
-  Instructions:
-  (Assumes all required IDs were added to list.html as specified in the instructions.)
 */
 
 // --- Element Selections ---
-// TODO: Select the section for the week list ('#weekly-list'). 
-// NOTE: Using '#weekly-list' based on the list.html solution provided previously.
-const listSection = document.querySelector('#weekly-list');
+// TODO: Select the section for the week list ('#week-list-section').
+// Using the ID implemented in list.html: #weeks-list-container
+const listSection = document.querySelector('#weeks-list-container');
 
 // --- Functions ---
 
@@ -16,40 +13,44 @@ const listSection = document.querySelector('#weekly-list');
  * TODO: Implement the createWeekArticle function.
  * It takes one week object {id, title, startDate, description}.
  * It should return an <article> element matching the structure in `list.html`.
- * - The "View Details & Discussion" link's `href` MUST be set to `details.html?weekId=${id}`.
- * (Using 'weekId' to match the detail.js implementation).
+ * - The "View Details & Discussion" link's `href` MUST be set to `detail.html?id=${id}`.
+ * (This is how the detail page will know which week to load).
  */
 function createWeekArticle(week) {
     // Create the main container article
     const article = document.createElement('article');
-    article.classList.add('week-summary');
-    article.dataset.weekId = week.id;
+    article.classList.add('week-entry');
+    article.setAttribute('data-week-id', week.id); // Useful for styling/tracking
 
-    // 1. Heading (h2)
-    const h2 = document.createElement('h2');
-    h2.textContent = week.title;
+    // Week Title <h2>
+    const title = document.createElement('h2');
+    title.textContent = week.title;
+    article.appendChild(title);
 
-    // 2. Start Date (p)
-    const pDate = document.createElement('p');
-    pDate.classList.add('start-date');
-    pDate.textContent = `Starts on: ${week.startDate}`;
+    // Start Date <p>
+    const startDateP = document.createElement('p');
+    startDateP.classList.add('start-date');
+    startDateP.textContent = `Starts on: ${week.startDate}`;
+    article.appendChild(startDateP);
 
-    // 3. Description Snippet (p) - using first 150 characters for brevity
-    const pDesc = document.createElement('p');
-    pDesc.classList.add('description-snippet');
-    const snippet = week.description ? week.description.substring(0, 150) + (week.description.length > 150 ? '...' : '') : 'No description available.';
-    pDesc.textContent = snippet;
+    // Description <p> (Using a sliced version for the list view)
+    const descriptionP = document.createElement('p');
+    descriptionP.classList.add('description');
+    // Display only the first 150 characters of the description for brevity
+    const shortDescription = week.description.length > 150 
+        ? week.description.substring(0, 150) + '...'
+        : week.description;
+    descriptionP.textContent = shortDescription;
+    article.appendChild(descriptionP);
 
-    // 4. Details Link (a)
-    const aLink = document.createElement('a');
-    aLink.classList.add('details-link');
-    // Set the href with the week's ID in the query string
-    aLink.href = `detail.html?weekId=${week.id}`; 
-    aLink.textContent = 'View Details & Discussion →';
+    // Details Link <a>
+    const detailsLink = document.createElement('a');
+    detailsLink.classList.add('details-link');
+    detailsLink.textContent = 'View Details & Discussion';
+    // Link MUST be set to detail.html?id=${id}
+    detailsLink.href = `detail.html?id=${week.id}`; 
+    article.appendChild(detailsLink);
 
-    // Assemble the article
-    article.append(h2, pDate, pDesc, aLink);
-    
     return article;
 }
 
@@ -66,36 +67,32 @@ function createWeekArticle(week) {
  */
 async function loadWeeks() {
     try {
-        // 1. Fetch data from 'weeks.json'
+        // 1. Use `fetch()` to get data from 'weeks.json'.
         const response = await fetch('weeks.json');
         
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            throw new Error(`HTTP error! Status: ${response.status}`);
         }
-        
-        // 2. Parse the JSON response
-        let weeks = await response.json();
-        
-        // Optional: Sort weeks by start date before rendering
-        weeks.sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
 
-        // 3. Clear existing content (like the dummy data)
+        // 2. Parse the JSON response into an array.
+        const weeksData = await response.json();
+        
+        // 3. Clear any existing content
         listSection.innerHTML = ''; 
 
-        // 4. Loop, create, and append
-        if (weeks && weeks.length > 0) {
-            weeks.forEach(week => {
+        // 4. Loop through the array and append articles
+        if (weeksData && weeksData.length > 0) {
+            weeksData.forEach(week => {
                 const weekArticle = createWeekArticle(week);
                 listSection.appendChild(weekArticle);
             });
         } else {
-            // Display message if no weeks are loaded
             listSection.innerHTML = '<p>No weekly course breakdown information is available yet.</p>';
         }
 
     } catch (error) {
-        console.error('Failed to load weekly breakdown:', error);
-        listSection.innerHTML = '<p>Error loading course content. Please try again later.</p>';
+        console.error('Error loading weekly course breakdown:', error);
+        listSection.innerHTML = `<p>Failed to load data. Please check 'weeks.json'. Error: ${error.message}</p>`;
     }
 }
 

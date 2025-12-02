@@ -1,79 +1,292 @@
-<!--
-  Requirement: Create the Student View for Assignments
-
-  Instructions:
-  This page is a read-only view for students to see all course assignments.
-  Each assignment should link to its dedicated detail page.
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- TODO: Add meta tags for charset and viewport. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- TODO: Add a title, e.g., "Course Assignments". -->
-    <title>Course Assignments</title>
-
-    <!-- TODO: Link to your CSS framework or stylesheet. -->
+    <title>Course Assignments - ITCS 333</title>
+    <link rel="stylesheet" href="../../common/dist/styles.css">
     <link rel="stylesheet" href="../common/styles.css">
 </head>
-<body class="assignment-container">
+<body class="bg-primary-900 text-paper">
+    <!-- Navigation Bar -->
+    <nav class="professional">
+        <div class="brand">📚 ITCS 333</div>
+        <ul>
+            <li><a href="list.html">Assignments</a></li>
+            <li><a href="../weekly/list.html">Weekly</a></li>
+            <li><a href="../resources/list.html">Resources</a></li>
+            <li><a href="../discussion/board.html">Discussion</a></li>
+            <li><a href="../admin/manage_users.html">Admin</a></li>
+        </ul>
+        <div class="site-actions"></div>
+    </nav>
 
-    <!-- TODO: Create a 'header' with a main heading ('h1') "Course Assignments". -->
-    <header>
-        <h1>Course Assignments</h1>
-    </header>
+    <!-- Hero Section -->
+    <section class="hero-premium">
+        <div class="hero-premium-content">
+            <h1>Assignments</h1>
+            <p>Track your course assignments, submit your work, and monitor your progress. Complete all tasks to master the course material.</p>
+            <div class="hero-cta-buttons">
+                <button class="hero-btn primary" onclick="document.getElementById('assignment-list-section').scrollIntoView({behavior: 'smooth'})">View All Assignments</button>
+                <a href="../resources/list.html" class="hero-btn secondary">📚 Learning Resources</a>
+            </div>
+        </div>
+    </section>
 
-    <!-- TODO: Create the 'main' content area. -->
-    <main>
-        <!-- TODO: Create a 'section' to contain the list of assignments. -->
+    <!-- Main Content -->
+    <main class="assignment-container">
+        <h2 style="margin-bottom: 2rem;">Current Assignments</h2>
+        
         <section id="assignment-list-section" class="assignment-list">
-            <!-- TODO: Add 2-3 dummy assignment entries using the structure below. -->
-
-            <!-- Example Assignment 1: -->
-            <!-- TODO: Use an 'article' element for each assignment. -->
-            <article class="assignment-card">
-                <h2>Assignment 1: HTML Basics</h2>
-                <div class="meta-row" aria-hidden="true">
-                    <span class="badge">Open</span>
-                    <span class="due-pill">Due: 2023-09-30</span>
+            <!-- Assignment 1: Professional Card -->
+            <article class="assignment-card professional" data-id="1">
+                <div class="professional-card-header">
+                    <div class="professional-card-icon">📋</div>
+                    <div class="professional-card-title-group">
+                        <h2>HTML Basics</h2>
+                        <div class="badge-group">
+                            <span class="badge-status pending">📅 Due in 5 days</span>
+                            <span class="badge-difficulty easy">Beginner</span>
+                        </div>
+                    </div>
                 </div>
-                <p>This assignment covers the basics of HTML, including structure, elements, and attributes.</p>
-                <div class="assignment-footer">
-                    <div class="meta-left">
-                        <div class="progress" aria-hidden="true"><span style="width:35%"></span></div>
+                <div class="professional-card-body">
+                    <p class="professional-card-description">Create a semantic HTML structure for a personal portfolio. Focus on using tags like header, nav, main, article, and footer.</p>
+                    <div class="professional-card-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Files</span>
+                            <span class="stat-value">5</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Progress</span>
+                            <span class="stat-value">35%</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Status</span>
+                            <span class="stat-value">In Progress</span>
+                        </div>
                     </div>
-                    <div class="meta-right">
-                        <a href="assignment-detail.html" class="btn btn--primary" data-emoji="🔗">View Details</a>
+                    <div class="professional-progress">
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" style="width: 35%"></div>
+                        </div>
+                        <span class="progress-text">35%</span>
                     </div>
+                </div>
+                <div class="professional-card-footer">
+                    <span class="due-date-pill">Due: Nov 10, 2025</span>
+                    <a href="details.html?id=1" class="professional-card-action">View Details</a>
                 </div>
             </article>
-            <!-- End of article. -->
 
-            <!-- Example Assignment 2: -->
-            <!-- TODO: Create a second 'article' for another assignment with the same structure. -->
-            <article class="assignment-card">
-                <h2>Assignment 2: CSS Fundamentals</h2>
-                <div class="meta-row" aria-hidden="true">
-                    <span class="badge" style="background: color-mix(in oklab, var(--accent-teal) 14%, var(--btn-dark-1));">Open</span>
-                    <span class="due-pill">Due: 2023-10-15</span>
+            <!-- Assignment 2: Professional Card -->
+            <article class="assignment-card professional" data-id="2">
+                <div class="professional-card-header">
+                    <div class="professional-card-icon">🎨</div>
+                    <div class="professional-card-title-group">
+                        <h2>CSS Styling</h2>
+                        <div class="badge-group">
+                            <span class="badge-status pending">📅 Due in 12 days</span>
+                            <span class="badge-difficulty medium">Intermediate</span>
+                        </div>
+                    </div>
                 </div>
-                <p>This assignment focuses on the fundamentals of CSS, including selectors, properties, and styling techniques.</p>
-                <div class="assignment-footer">
-                    <div class="meta-left">
-                        <div class="progress" aria-hidden="true"><span style="width:62%"></span></div>
+                <div class="professional-card-body">
+                    <p class="professional-card-description">Style your HTML portfolio using modern CSS. Implement Flexbox or Grid for layout and include CSS animations.</p>
+                    <div class="professional-card-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Files</span>
+                            <span class="stat-value">3</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Progress</span>
+                            <span class="stat-value">62%</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Status</span>
+                            <span class="stat-value">In Progress</span>
+                        </div>
                     </div>
-                    <div class="meta-right">
-                        <a href="assignment-detail.html" class="btn btn--primary" data-emoji="🔗">View Details</a>
+                    <div class="professional-progress">
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" style="width: 62%"></div>
+                        </div>
+                        <span class="progress-text">62%</span>
                     </div>
+                </div>
+                <div class="professional-card-footer">
+                    <span class="due-date-pill">Due: Nov 17, 2025</span>
+                    <a href="details.html?id=2" class="professional-card-action">View Details</a>
                 </div>
             </article>
-            <!-- End of article. -->
+
+            <!-- Assignment 3: Professional Card -->
+            <article class="assignment-card professional" data-id="3">
+                <div class="professional-card-header">
+                    <div class="professional-card-icon">⚙️</div>
+                    <div class="professional-card-title-group">
+                        <h2>JavaScript Interactivity</h2>
+                        <div class="badge-group">
+                            <span class="badge-status overdue">⚠️ Overdue by 2 days</span>
+                            <span class="badge-difficulty hard">Advanced</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="professional-card-body">
+                    <p class="professional-card-description">Add interactive functionality to your portfolio using vanilla JavaScript. Implement form validation and DOM manipulation.</p>
+                    <div class="professional-card-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Files</span>
+                            <span class="stat-value">2</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Progress</span>
+                            <span class="stat-value">0%</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Status</span>
+                            <span class="stat-value">Not Started</span>
+                        </div>
+                    </div>
+                    <div class="professional-progress">
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="progress-text">0%</span>
+                    </div>
+                </div>
+                <div class="professional-card-footer">
+                    <span class="due-date-pill">Due: Nov 5, 2025</span>
+                    <a href="details.html?id=3" class="professional-card-action">View Details</a>
+                </div>
+            </article>
+
+            <!-- Assignment 4: Professional Card -->
+            <article class="assignment-card professional" data-id="4">
+                <div class="professional-card-header">
+                    <div class="professional-card-icon">✅</div>
+                    <div class="professional-card-title-group">
+                        <h2>Responsive Design</h2>
+                        <div class="badge-group">
+                            <span class="badge-status submitted">✓ Submitted</span>
+                            <span class="badge-difficulty easy">Beginner</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="professional-card-body">
+                    <p class="professional-card-description">Implement responsive design principles using media queries. Test on mobile, tablet, and desktop devices.</p>
+                    <div class="professional-card-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Files</span>
+                            <span class="stat-value">4</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Progress</span>
+                            <span class="stat-value">100%</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Grade</span>
+                            <span class="stat-value">A</span>
+                        </div>
+                    </div>
+                    <div class="professional-progress">
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" style="width: 100%"></div>
+                        </div>
+                        <span class="progress-text">100%</span>
+                    </div>
+                </div>
+                <div class="professional-card-footer">
+                    <span class="due-date-pill">Due: Oct 20, 2025</span>
+                    <a href="details.html?id=4" class="professional-card-action">View Feedback</a>
+                </div>
+            </article>
+
+            <!-- Assignment 5: Professional Card -->
+            <article class="assignment-card professional" data-id="5">
+                <div class="professional-card-header">
+                    <div class="professional-card-icon">🔌</div>
+                    <div class="professional-card-title-group">
+                        <h2>API Integration</h2>
+                        <div class="badge-group">
+                            <span class="badge-status pending">📅 Due in 18 days</span>
+                            <span class="badge-difficulty hard">Advanced</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="professional-card-body">
+                    <p class="professional-card-description">Integrate a REST API to fetch dynamic data. Use async/await and implement error handling for API calls.</p>
+                    <div class="professional-card-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Files</span>
+                            <span class="stat-value">1</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Progress</span>
+                            <span class="stat-value">15%</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Status</span>
+                            <span class="stat-value">Not Started</span>
+                        </div>
+                    </div>
+                    <div class="professional-progress">
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" style="width: 15%"></div>
+                        </div>
+                        <span class="progress-text">15%</span>
+                    </div>
+                </div>
+                <div class="professional-card-footer">
+                    <span class="due-date-pill">Due: Nov 23, 2025</span>
+                    <a href="details.html?id=5" class="professional-card-action">View Details</a>
+                </div>
+            </article>
+
+            <!-- Assignment 6: Professional Card -->
+            <article class="assignment-card professional" data-id="6">
+                <div class="professional-card-header">
+                    <div class="professional-card-icon">📊</div>
+                    <div class="professional-card-title-group">
+                        <h2>Final Project</h2>
+                        <div class="badge-group">
+                            <span class="badge-status pending">📅 Due in 25 days</span>
+                            <span class="badge-difficulty hard">Expert</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="professional-card-body">
+                    <p class="professional-card-description">Create a complete web application combining all course concepts. Include user authentication, database integration, and deployment.</p>
+                    <div class="professional-card-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Files</span>
+                            <span class="stat-value">8</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Progress</span>
+                            <span class="stat-value">10%</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Status</span>
+                            <span class="stat-value">Not Started</span>
+                        </div>
+                    </div>
+                    <div class="professional-progress">
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" style="width: 10%"></div>
+                        </div>
+                        <span class="progress-text">10%</span>
+                    </div>
+                </div>
+                <div class="professional-card-footer">
+                    <span class="due-date-pill">Due: Nov 29, 2025</span>
+                    <a href="details.html?id=6" class="professional-card-action">View Details</a>
+                </div>
+            </article>
         </section>
-        <!-- End of assignment list section. -->
     </main>
-    <!-- End of main. -->
 
-  <script src="list.js" defer></script>
+    <script src="list.js" defer></script>
+    <script src="../common/theme.js" defer></script>
 </body>
 </html>
