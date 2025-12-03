@@ -11,6 +11,7 @@
 // TODO: Start a PHP session using session_start()
 // This must be called before any output is sent to the browser
 // Sessions allow us to store user data across multiple pages
+session_set_cookie_params(['lifetime' => 0,'path' => '/','domain' => '','secure' => false, 'httponly' => true,'samesite' => 'Lax']);
 session_start();
 
 
@@ -23,6 +24,7 @@ header('Content-Type: application/json');
 // TODO: (Optional) Set CORS headers if your frontend and backend are on different domains
 // You'll need headers for Access-Control-Allow-Origin, Methods, and Headers
 header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Credentials: true');
 header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Authorization');
 
@@ -95,7 +97,7 @@ if (strlen($password) < 8) {
 // TODO: Get the database connection using the provided function
 // Assume getDBConnection() returns a PDO instance with error mode set to exception
 // The function is defined elsewhere (e.g., in a config file or db.php)
-require_once __DIR__ . "/../../common/db.php";
+require_once __DIR__ . "/../../db.php";
 
 
 // TODO: Wrap database operations in a try-catch block to handle PDO exceptions
@@ -110,7 +112,7 @@ try {
     // Use a WHERE clause to filter by email
     // IMPORTANT: Use a placeholder (? or :email) for the email value
     // This prevents SQL injection attacks
-    $sql = "SELECT id, student_id, name, email, password FROM students WHERE email = :email";
+    $sql = "SELECT id, name, email, password FROM users WHERE email = :email";
 
 
     // --- Prepare the Statement ---
@@ -141,18 +143,18 @@ try {
 
         // --- Handle Successful Authentication ---
         // TODO: Store user information in session variables
-        $_SESSION['user_id']    = $user['id'];
-        $_SESSION['user_name']  = $user['name'];
+        $_SESSION['id'] = $user['id'];
+        $_SESSION['user_name'] = $user['name'];
         $_SESSION['user_email'] = $user['email'];
-        $_SESSION['logged_in']  = true;
+        $_SESSION['logged_in'] = true;
 
         // TODO: Prepare a success response array
         $response = [
             'success' => true,
             'message' => 'Login successful',
             'user' => [
-                'id'    => $user['id'],
-                'name'  => $user['name'],
+                'id' => $user['id'],
+                'name' => $user['name'],
                 'email' => $user['email']
             ]
         ];
