@@ -97,26 +97,45 @@ function isValidPassword(password) {
  * - Call `displayMessage("Login successful!", "success")`.
  * - (Optional) Clear the email and password input fields.
  */
-function handleLogin(event) {
+async function handleLogin(event) {
   event.preventDefault();
 
   const email = emailInput.value.trim();
   const password = passwordInput.value.trim();
 
-  if(! isValidEmail(email)){
+  if (!isValidEmail(email)) {
     displayMessage("Invalid email format.", "error");
     return;
   }
 
-  if(! isValidPassword(password)){
-    displayMessage("Password must be at least 8 characters.", "error")
+  if (!isValidPassword(password)) {
+    displayMessage("Password must be at least 8 characters.", "error");
     return;
   }
 
-  displayMessage("Login successful!", "success")
+ fetch("api/index.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    credentials: "same-origin",
+    body: JSON.stringify({ email, password })
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.success) {
+      displayMessage("Login successful!", "success");
 
-  emailInput.value = "";
-  passwordInput.value = "";
+      setTimeout(() => {
+        window.location.href = "../admin/manage_users.html"; 
+      }, 1000);
+
+    } else {
+      displayMessage(data.message || "Login failed", "error");
+    }
+  })
+  .catch(error => {
+    console.error(error);
+    displayMessage("Server error. Try again.", "error");
+  });
 }
 
 /**
@@ -128,10 +147,16 @@ function handleLogin(event) {
  * 3. The event listener should call the `handleLogin` function.
  */
 function setupLoginForm() {
-  if(loginForm){
+  console.log("setupLoginForm() running");
+
+  if (loginForm) {
+    console.log("Login form found");
     loginForm.addEventListener("submit", handleLogin);
+  } else {
+    console.log("login form NOT found");
   }
 }
+
 
 // --- Initial Page Load ---
 // Call the main setup function to attach the event listener.
