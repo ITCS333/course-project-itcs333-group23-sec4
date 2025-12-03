@@ -13,13 +13,14 @@
 // This array will be populated with data fetched from 'students.json'.
 let students = [];
 
+let isInitialized = false;
+
 // --- Element Selections ---
 // We can safely select elements here because 'defer' guarantees
 // the HTML document is parsed before this script runs.
 
 // TODO: Select the student table body (tbody).
 const studentTableBody = document.querySelector("#student-table tbody");
-
 
 // TODO: Select the "Add Student" form.
 // (You'll need to add id="add-student-form" to this form in your HTML).
@@ -33,9 +34,8 @@ const changePasswordForm = document.getElementById("password-form");
 // (You'll need to add id="search-input" to this input in your HTML).
 const searchInput = document.getElementById("search-input");
 
-
 // TODO: Select all table header (th) elements in thead.
-const tableHeaders = document.querySelectorAll("#student-table thead th");
+const tableHeaders = document.querySelectorAll("thead th");
 
 // --- Functions ---
 
@@ -54,7 +54,7 @@ function createStudentRow(student) {
   const tr = document.createElement("tr");
 
   tr.innerHTML = 
-    `<td>${student.name}</td>
+   `<td>${student.name}</td>
     <td>${student.id}</td>
     <td>${student.email}</td>
     <td>
@@ -74,10 +74,11 @@ function createStudentRow(student) {
  */
 function renderTable(studentArray) {
   studentTableBody.innerHTML = "";
-  for (let i = 0; i < studentArray.length; i++) {
-    const row = createStudentRow(studentArray[i]);
+
+  studentArray.forEach(student => {
+    let row = createStudentRow(student);
     studentTableBody.appendChild(row);
-  }
+  });
 }
 
 /**
@@ -94,24 +95,47 @@ function renderTable(studentArray) {
  */
 function handleChangePassword(event) {
   event.preventDefault();
-  const currentPassword = document.getElementById("current-password").value.trim();
-  const newPassword = document.getElementById("new-password").value.trim();
-  const confirm = document.getElementById("confirm-password").value.trim();
 
-  if(newPassword !== confirm){
+  const currentPassword = document.getElementById("current-password").value;
+  const newPassword = document.getElementById("new-password").value;
+  const confirmPassword = document.getElementById("confirm-password").value;
+
+  if(newPassword !== confirmPassword){
     alert("Passwords do not match.")
-    return
+    return;
   }
 
   if(newPassword.length < 8){
     alert("Password must be at least 8 characters.")
-    return
+    return;
   }
 
-  alert("Password updated successfully!")
-  document.getElementById("current-password").value = "";
-  document.getElementById("new-password").value = "";
-  document.getElementById("confirm-password").value = "";
+fetch("api/index.php?action=change_password", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    credentials: "same-origin",
+    body: JSON.stringify({
+      current_password: currentPassword,
+      new_password: newPassword
+    })
+  })
+    .then(res => res.json())
+    .then(data => {
+      console.log("Change password response:", data);
+
+      if (data.success) {
+        alert("Password updated successfully!");
+        document.getElementById("current-password").value = "";
+        document.getElementById("new-password").value = "";
+        document.getElementById("confirm-password").value = "";
+      } else {
+        alert(data.message || data.error || "Error occurred while updating the password");
+      }
+    })
+    .catch(error => {
+      console.error(error);
+      alert("Network error while updating the password");
+    });
 }
 
 /**
@@ -131,13 +155,15 @@ function handleChangePassword(event) {
  */
 function handleAddStudent(event) {
   event.preventDefault();
-  const name = document.getElementById("student-name").value.trim();
-  const id = document.getElementById("student-id").value.trim();
-  const email = document.getElementById("student-email").value.trim();
+
+  const name = document.getElementById("student-name").value;
+  const id = document.getElementById("student-id").value;
+  const email = document.getElementById("student-email").value;
+  const password = document.getElementById("default-password").value;
 
   if(!name || !id || !email){
     alert("Please fill out all required fields.")
-    return
+    return;
   }
 
   for(let i=0 ; i<students.length ; i++){
@@ -147,15 +173,36 @@ function handleAddStudent(event) {
     }
   }
 
-  let newStudent = {name, id, email};
-  students.push(newStudent);
+  let newStudent = {
+    id: id,
+    name: name,
+    email: email,
+    password: password
+  };
 
-  renderTable(students);
+   fetch("api/index.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    credentials: "same-origin",
+    body: JSON.stringify(newStudent)
+  })
+    .then(res => res.json())           
+    .then(data => {                    
+      if (data.success) {
+        loadStudentsAndInitialize();
 
-  document.getElementById("student-name").value = "";
-  document.getElementById("student-id").value = "";
-  document.getElementById("student-email").value = "";
-  document.getElementById("default-password").value = "password123";
+        document.getElementById("student-name").value = "";
+        document.getElementById("student-id").value = "";
+        document.getElementById("student-email").value = "";
+        document.getElementById("default-password").value = "";
+      } else {
+        alert("Failed to add student");
+      }
+    })
+    .catch(error => {
+      console.error(error);
+      alert("Error while adding student");
+    });
 }
 
 /**
@@ -170,22 +217,59 @@ function handleAddStudent(event) {
  * 3. (Optional) Check for "edit-btn" and implement edit logic.
  */
 function handleTableClick(event) {
+  
+  const id = event.target.getAttribute("data-id");
+
   if (event.target.classList.contains("delete-btn")) {
-    const id = event.target.dataset.id;
-    students = students.filter(student => student.id !== id);
-    renderTable(students);
-  } else if (event.target.classList.contains("edit-btn")) {
-    const id = event.target.dataset.id;
-    const student = students.find(s => s.id === id);
-    if (student) {
-      const newName = prompt("Edit student name:", student.name);
-      const newEmail = prompt("Edit student email:", student.email);
-      if (newName && newEmail) {
-        student.name = newName.trim();
-        student.email = newEmail.trim();
-        renderTable(students);
-      }
-    }
+
+    fetch(`api/index.php?id=${encodeURIComponent(id)}`, {
+      method: "DELETE",
+      credentials: "same-origin"
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          loadStudentsAndInitialize();
+        } else {
+          alert("Error occurred while deleting the student");
+        }
+      })
+      .catch(error => {
+        console.error(error);
+        alert("Server error while deleting student");
+      });
+  }
+
+  if (event.target.classList.contains("edit-btn")) {
+
+    const student = students.find(s => s.id == id);
+    if (!student) return;
+
+    const newName  = prompt("Edit Name:", student.name);
+    const newEmail = prompt("Edit Email:", student.email);
+
+    if (!newName || !newEmail) return;
+
+    fetch("api/index.php", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      credentials: "same-origin",
+      body: JSON.stringify({
+        id: id,
+        name: newName,
+        email: newEmail
+      })
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          loadStudentsAndInitialize();
+          alert("Updated successfully");
+        } else {
+          alert(data.message || "Update failed");
+        }
+      })
+      .catch(console.error);
   }
 }
 
@@ -201,16 +285,14 @@ function handleTableClick(event) {
  * - Call `renderTable` with the *filtered array*.
  */
 function handleSearch(event) {
-  const searchTerm = event.target.value.toLowerCase();
-  if (!searchTerm) {
-    renderTable(students);
-    return;
-  }
+  const term = searchInput.value.trim();
 
-  const filtered = students.filter(s =>
-    s.name.toLowerCase().includes(searchTerm)
-  );
-  renderTable(filtered);
+  const url = term ? `api/index.php?search=${encodeURIComponent(term)}` : "api/index.php";
+
+  fetch(url)
+    .then(res => res.json())
+    .then(data => renderTable(data.data || []))
+    .catch(console.error);
 }
 
 /**
@@ -228,26 +310,35 @@ function handleSearch(event) {
  * 6. After sorting, call `renderTable(students)` to update the view.
  */
 function handleSort(event) {
+
   const th = event.currentTarget;
   const index = th.cellIndex;
-  const fields = ["name", "id", "email"];
-  const field = fields[index];
 
-  let direction = th.dataset.sortDir || "asc";
-  direction = direction === "asc" ? "desc" : "asc";
-  th.dataset.sortDir = direction;
+  if (index > 2) 
+    return;
 
-  students.sort((a, b) => {
-    let comparison = 0;
-    if (field === "id") {
-      comparison = (a.id || "").localeCompare(b.id || "", undefined, { numeric: true });
-    } else {
-      comparison = (a[field] || "").localeCompare(b[field] || "");
-    }
-    return direction === "asc" ? comparison : -comparison;
+  const props = ["name", "id", "email"];
+  const sortProperty = props[index];
+
+  const currentDir = th.dataset.sortDir || "asc";
+  const newDir = currentDir === "asc" ? "desc" : "asc";
+
+  th.dataset.sortDir = newDir;
+
+  tableHeaders.forEach(header => {
+    header.textContent = header.textContent.replace(/ ▲| ▼/, "");
+    if (header !== th) header.removeAttribute("data-sort-dir");
   });
 
-  renderTable(students);
+  th.textContent += newDir === "asc" ? " ▲" : " ▼";
+
+  fetch(`api/index.php?sort=${sortProperty}&order=${newDir}`)
+    .then(res => res.json())
+    .then(data => {
+      students = data.data || [];     
+      renderTable(students);      
+    })
+    .catch(error => console.error("Sort error:", error));
 }
 
 /**
@@ -268,23 +359,29 @@ function handleSort(event) {
  */
 async function loadStudentsAndInitialize() {
    try {
-    const response = await fetch("api/students.json");
+    const response = await fetch("api/index.php");
+
     if (!response.ok) {
-      console.error("Failed to load students.json");
-      return;
+      console.error("Failed to load students");
     }
-    students = await response.json();
+    else {
+      const result = await response.json();
+      students = result.data || [];
+    }
   } catch (error) {
-    console.error("Error loading students.json:", error);
+    console.error("Error loading students", error);
   }
 
   renderTable(students);
  
+  if(!isInitialized){
   changePasswordForm.addEventListener("submit", handleChangePassword);
   addStudentForm.addEventListener("submit", handleAddStudent);
   studentTableBody.addEventListener("click", handleTableClick);
   searchInput.addEventListener("input", handleSearch);
   tableHeaders.forEach(th => th.addEventListener("click", handleSort));
+  isInitialized = true;
+  }
 }
 
 // --- Initial Page Load ---
