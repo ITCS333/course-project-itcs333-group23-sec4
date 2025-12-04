@@ -26,12 +26,67 @@ const listSection = document.querySelector('#assignment-list-section');
  */
 function createAssignmentArticle(assignment) {
   const article = document.createElement('article');
-  article.innerHTML = `
-    <h2>${assignment.title}</h2>
-    <p>Due: ${assignment.dueDate}</p>
-    <p>${assignment.description}</p>
-    <a href="details.html?id=${assignment.id}">View Details</a>
-  `;
+  article.className = 'assignment-card professional';
+  article.setAttribute('data-id', assignment.id);
+  
+  // Create header
+  const header = document.createElement('div');
+  header.className = 'professional-card-header';
+  
+  const icon = document.createElement('div');
+  icon.className = 'professional-card-icon';
+  icon.textContent = '📋';
+  
+  const titleGroup = document.createElement('div');
+  titleGroup.className = 'professional-card-title-group';
+  
+  const title = document.createElement('h2');
+  title.textContent = assignment.title;
+  
+  const badgeGroup = document.createElement('div');
+  badgeGroup.className = 'badge-group';
+  
+  const statusBadge = document.createElement('span');
+  statusBadge.className = 'badge-status pending';
+  statusBadge.textContent = `📅 Due: ${assignment.dueDate}`;
+  
+  badgeGroup.appendChild(statusBadge);
+  titleGroup.appendChild(title);
+  titleGroup.appendChild(badgeGroup);
+  header.appendChild(icon);
+  header.appendChild(titleGroup);
+  
+  // Create body
+  const body = document.createElement('div');
+  body.className = 'professional-card-body';
+  
+  const description = document.createElement('p');
+  description.className = 'professional-card-description';
+  description.textContent = assignment.description;
+  
+  body.appendChild(description);
+  
+  // Create footer
+  const footer = document.createElement('div');
+  footer.className = 'professional-card-footer';
+  
+  const dueDatePill = document.createElement('span');
+  dueDatePill.className = 'due-date-pill';
+  dueDatePill.textContent = `Due: ${assignment.dueDate}`;
+  
+  const link = document.createElement('a');
+  link.href = `details.html?id=${assignment.id}`;
+  link.className = 'professional-card-action';
+  link.textContent = 'View Details';
+  
+  footer.appendChild(dueDatePill);
+  footer.appendChild(link);
+  
+  // Assemble card
+  article.appendChild(header);
+  article.appendChild(body);
+  article.appendChild(footer);
+  
   return article;
 }
 
@@ -49,9 +104,9 @@ function createAssignmentArticle(assignment) {
 async function loadAssignments() {
   try {
     // fetch assignments from the local api folder
-    const response = await fetch('api/assignments.json');
+    const response = await fetch('http://localhost:8000/src/assignments/api/index.php');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const assignments = await response.json();
+    const assignments = (await response.json())?.data;
 
     if (!listSection) return; // guard if section is missing
 

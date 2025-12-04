@@ -197,11 +197,11 @@ async function initializePage() {
   }
   try {
     // fetch assignments from the api subfolder
-    const assignmentsResponse = await fetch('api/assignments.json');
+    const assignmentsResponse = await fetch(`http://localhost:8000/src/assignments/api/index.php?resource=assignments&id=${currentAssignmentId}`);
     if (!assignmentsResponse.ok) throw new Error(`HTTP ${assignmentsResponse.status}`);
-    const assignments = await assignmentsResponse.json();
-    const assignment = assignments.find(a => String(a.id) === String(currentAssignmentId));
-
+    // const assignments = await assignmentsResponse.json();
+    // const assignment = assignments.find(a => String(a.id) === String(currentAssignmentId));
+const assignment = (await assignmentsResponse.json())?.data;
     // try to load comments from storage (localStorage) first
     loadCommentsFromStorage();
 
