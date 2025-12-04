@@ -177,7 +177,7 @@ async function loadAndInitialize() {
   } else {
     try {
       // assignments.json lives in the api/ subfolder
-      const response = await fetch('api/assignments.json');
+      const response = await fetch('http://localhost:8000/src/assignments/api/index.php');
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const data = await response.json();
       assignments = Array.isArray(data) ? data : [];

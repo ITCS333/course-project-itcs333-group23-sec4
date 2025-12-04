@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for charset and viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
+    
+    <!-- Title -->
+    <title>Course Resources</title>
+
+    <!-- Link to CSS stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header with main heading -->
+    <header>
+        <h1>Course Resources</h1>
+    </header>
+
+    <!-- Main content area -->
+    <main>
+        <!-- Section to contain the list of resources -->
+        <section id="resource-list-section">
+            
+            <!-- Example Resource 1 -->
+            <article>
+                <!-- Heading for resource title -->
+                <h2>Chapter 1 Notes</h2>
+                <!-- Paragraph for description -->
+                <p>A comprehensive summary of the first chapter, covering all key concepts.</p>
+                <!-- Anchor tag linking to detail page -->
+                <a href="details.html?id=res_1">View Resource & Discussion</a>
+            </article>
+=======
+    <title>Learning Resources - ITCS 333</title>
+    <link rel="stylesheet" href="../common/dist/styles.css">
+    <link rel="stylesheet" href="../common/styles.css">
+</head>
+<body class="bg-primary-900 text-paper">
+    <!-- Navigation -->
+    <nav class="professional">
+        <div class="brand">📚 ITCS 333</div>
+        <ul>
+            <li><a href="../assignments/list.html">Assignments</a></li>
+            <li><a href="../weekly/list.html">Weekly</a></li>
+            <li><a href="list.html">Resources</a></li>
+            <li><a href="../discussion/board.html">Discussion</a></li>
+            <li><a href="../admin/manage_users.html">Admin</a></li>
+        </ul>
+        <div class="site-actions"></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-premium">
+        <div class="hero-premium-content">
+            <h1>Learning Resources</h1>
+            <p>Comprehensive collection of tutorials, documentation, tools, and references to support your learning journey. Access articles, videos, and interactive guides.</p>
+            <div class="hero-cta-buttons">
+                <button class="hero-btn primary" onclick="document.getElementById('resources-list').scrollIntoView({behavior: 'smooth'})">Explore Resources</button>
+                <a href="../discussion/board.html" class="hero-btn secondary">💬 Ask Questions</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="assignment-container">
+        <h2 style="margin-bottom: 2rem;">Available Materials</h2>
+
+        <section id="resources-list" class="assignment-list">
+            <!-- Resource 1: MDN Web Docs -->
+            <article class="assignment-card professional" data-resource-id="1">
+                <div class="professional-card-header">
+                    <div class="professional-card-icon">📖</div>
+                    <div class="professional-card-title-group">
+                        <h2>MDN Web Docs</h2>
+                        <div class="badge-group">
+                            <span class="badge-status submitted">✓ Official</span>
+                            <span class="badge-difficulty easy">Reference</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="professional-card-body">
+                    <p class="professional-card-description">The Mozilla Developer Network provides comprehensive documentation for HTML, CSS, and JavaScript. Essential reference material.</p>
+                    <div class="professional-card-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Type</span>
+                            <span class="stat-value">Documentation</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Language</span>
+                            <span class="stat-value">English</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Level</span>
+                            <span class="stat-value">All</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="professional-card-footer">
+                    <span class="due-date-pill">🔗 Online Resource</span>
+                    <a href="details.html?id=1" class="professional-card-action">View Resource</a>
+                </div>
+            </article>
+
+            <!-- Resource 2: W3Schools -->
+            <article class="assignment-card professional" data-resource-id="2">
+                <div class="professional-card-header">
+                    <div class="professional-card-icon">🎓</div>
+                    <div class="professional-card-title-group">
+                        <h2>W3Schools Tutorials</h2>
+                        <div class="badge-group">
+                            <span class="badge-status submitted">✓ Interactive</span>
+                            <span class="badge-difficulty easy">Tutorial</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="professional-card-body">
+                    <p class="professional-card-description">Interactive tutorials for web development. Try examples live in the browser and practice your skills with exercises.</p>
+                    <div class="professional-card-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Type</span>
+                            <span class="stat-value">Interactive</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Language</span>
+                            <span class="stat-value">English</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Level</span>
+                            <span class="stat-value">Beginner</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="professional-card-footer">
+                    <span class="due-date-pill">🔗 Online Resource</span>
+                    <a href="details.html?id=2" class="professional-card-action">View Resource</a>
+                </div>
+            </article>
+
+            <!-- Resource 3: FreeCodeCamp -->
+            <article class="assignment-card professional" data-resource-id="3">
+                <div class="professional-card-header">
+                    <div class="professional-card-icon">🎬</div>
+                    <div class="professional-card-title-group">
+                        <h2>FreeCodeCamp Videos</h2>
+                        <div class="badge-group">
+                            <span class="badge-status submitted">✓ Video</span>
+                            <span class="badge-difficulty medium">Tutorial</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="professional-card-body">
+                    <p class="professional-card-description">High-quality video tutorials covering web development fundamentals. Learn at your own pace with detailed explanations.</p>
+                    <div class="professional-card-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Type</span>
+                            <span class="stat-value">Video</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Language</span>
+                            <span class="stat-value">English</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Level</span>
+                            <span class="stat-value">Beginner</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="professional-card-footer">
+                    <span class="due-date-pill">🔗 YouTube</span>
+                    <a href="details.html?id=3" class="professional-card-action">View Resource</a>
+                </div>
+            </article>
+
+            <!-- Resource 4: Can I Use -->
+            <article class="assignment-card professional" data-resource-id="4">
+                <div class="professional-card-header">
+                    <div class="professional-card-icon">🌐</div>
+                    <div class="professional-card-title-group">
+                        <h2>Can I Use?</h2>
+                        <div class="badge-group">
+                            <span class="badge-status submitted">✓ Browser Support</span>
+                            <span class="badge-difficulty medium">Reference</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="professional-card-body">
+                    <p class="professional-card-description">Check browser compatibility for HTML5, CSS3, and JavaScript features. Essential for cross-browser development.</p>
+                    <div class="professional-card-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Type</span>
+                            <span class="stat-value">Compatibility</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Language</span>
+                            <span class="stat-value">English</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Level</span>
+                            <span class="stat-value">Intermediate</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="professional-card-footer">
+                    <span class="due-date-pill">🔗 Online Tool</span>
+                    <a href="details.html?id=4" class="professional-card-action">View Resource</a>
+                </div>
+            </article>
+
+            <!-- Resource 5: Stack Overflow -->
+            <article class="assignment-card professional" data-resource-id="5">
+                <div class="professional-card-header">
+                    <div class="professional-card-icon">❓</div>
+                    <div class="professional-card-title-group">
+                        <h2>Stack Overflow</h2>
+                        <div class="badge-group">
+                            <span class="badge-status submitted">✓ Community</span>
+                            <span class="badge-difficulty hard">Q&A</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="professional-card-body">
+                    <p class="professional-card-description">Largest Q&A platform for developers. Search solutions, ask questions, and learn from experienced developers worldwide.</p>
+                    <div class="professional-card-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Type</span>
+                            <span class="stat-value">Community Q&A</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Language</span>
+                            <span class="stat-value">English</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Level</span>
+                            <span class="stat-value">All</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="professional-card-footer">
+                    <span class="due-date-pill">🔗 Online Community</span>
+                    <a href="details.html?id=5" class="professional-card-action">View Resource</a>
+                </div>
+            </article>
+
+            <!-- Resource 6: Codepen -->
+            <article class="assignment-card professional" data-resource-id="6">
+                <div class="professional-card-header">
+                    <div class="professional-card-icon">💻</div>
+                    <div class="professional-card-title-group">
+                        <h2>Codepen</h2>
+                        <div class="badge-group">
+                            <span class="badge-status submitted">✓ Sandbox</span>
+                            <span class="badge-difficulty medium">Practice</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="professional-card-body">
+                    <p class="professional-card-description">Social development environment. Create, share, and showcase your projects. Browse examples from other developers.</p>
+                    <div class="professional-card-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Type</span>
+                            <span class="stat-value">IDE/Community</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Language</span>
+                            <span class="stat-value">English</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Level</span>
+                            <span class="stat-value">All</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="professional-card-footer">
+                    <span class="due-date-pill">🔗 Online IDE</span>
+                    <a href="details.html?id=6" class="professional-card-action">View Resource</a>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <script src="list.js"></script>
+    <script src="../common/theme.js" defer></script>
+</body>
+</html>
+>>>>>>> 8cecb25 (front editing , task 3 editing)
+
+            <!-- Example Resource 2 -->
+            <article>
+                <!-- Heading for resource title -->
+                <h3>Interactive Git Tutorial</h3>
+                <!-- Paragraph for description -->
+                <p>An external website that lets you practice Git commands in your browser.</p>
+                <!-- Anchor tag linking to detail page -->
+                <a href="details.html?id=res_2">View Resource & Discussion</a>
+            </article>
+
+        </section>
+    </main>
+
+    <!-- Link to JavaScript file -->
+    <script src="list.js" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../common/theme.js" defer></script>
+</body>
+<<<<<<< HEAD
+</html>
+=======
+</html>
+>>>>>>> 8cecb25 (front editing , task 3 editing)

@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 // ============================================================================
 
 // TODO: Include the database connection class
-
+require_once __DIR__ . '/../../common/DatabaseHelper.php';
 
 // TODO: Create database connection
 
@@ -67,39 +67,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 // TODO: Set PDO to throw exceptions on errors
 
 // Include a mocked Database class (other modules use a similar approach)
-class Database {
-    private $host = "localhost";
-    private $db_name = "assignments_db";
-    private $username = "user";
-    private $password = "password";
-
-    public function getConnection() {
-        $conn = null;
-        try {
-            // In a real environment, uncomment and configure the following:
-            // $conn = new PDO("mysql:host={$this->host};dbname={$this->db_name}", $this->username, $this->password);
-            // $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-            // For this submission we provide a mocked object so logic can run without DB
-            $conn = (object)['mocked' => true];
-        } catch (PDOException $e) {
-            throw new Exception("Database connection error: " . $e->getMessage());
-        }
-        return $conn;
-    }
-}
-
-// Initialize (mocked) DB connection
-try {
-    // $database = new Database();
-    // $db = $database->getConnection();
-    $db = new class {};
-} catch (Exception $e) {
-    sendError("API initialization failed: Database error.", 500);
-    exit();
-
-}
-
+$dbHelper = new DatabaseHelper();
+$db = $dbHelper->getConnection();
 
 
 // ============================================================================
@@ -163,18 +132,18 @@ function getAllAssignments($db) {
 
     try {
         // In a real DB environment use PDO prepared statements. Here we mock results.
-        // $stmt = $db->prepare($query);
-        // $stmt->execute($params);
-        // $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt = $db->prepare($query); // Prepare sanitizes the sql to avoid sql injection attacks
+        $stmt->execute($params); // Execute the query
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC); // Get all the results
 
-        $result = [
-            ['id' => 1, 'title' => 'Assignment 1', 'description' => 'Intro', 'due_date' => '2025-12-01', 'files' => '["/files/a1.pdf"]', 'created_at' => '2025-11-01 09:00:00', 'updated_at' => null]
-        ];
+        // $result = [
+        //     ['id' => 1, 'title' => 'Assignment 1', 'description' => 'Intro', 'due_date' => '2025-12-01', 'files' => '["/files/a1.pdf"]', 'created_at' => '2025-11-01 09:00:00', 'updated_at' => null]
+        // ];
 
-        foreach ($result as &$assignment) {
-            $assignment['files'] = json_decode($assignment['files'], true) ?? [];
-        }
-        unset($assignment);
+        // foreach ($result as &$assignment) {
+        //     $assignment['files'] = json_decode($assignment['files'], true) ?? [];
+        // }
+        // unset($assignment);
 
         sendResponse(['success' => true, 'data' => $result]);
     } catch (PDOException $e) {
@@ -201,12 +170,12 @@ function getAssignmentById($db, $assignmentId) {
 
     $query = "SELECT id, title, description, due_date, files, created_at, updated_at FROM assignments WHERE id = ?";
     try {
-        // $stmt = $db->prepare($query);
-        // $stmt->execute([$assignmentId]);
-        // $assignment = $stmt->fetch(PDO::FETCH_ASSOC);
+        $stmt = $db->prepare($query);
+        $stmt->execute([$assignmentId]);
+        $assignment = $stmt->fetch(PDO::FETCH_ASSOC);
 
         // Mock result (null when not found)
-        $assignment = ($assignmentId == 1) ? ['id' => 1, 'title' => 'Assignment 1', 'description' => 'Intro', 'due_date' => '2025-12-01', 'files' => '["/files/a1.pdf"]', 'created_at' => '2025-11-01 09:00:00', 'updated_at' => null] : null;
+        // $assignment = ($assignmentId == 1) ? ['id' => 1, 'title' => 'Assignment 1', 'description' => 'Intro', 'due_date' => '2025-12-01', 'files' => '["/files/a1.pdf"]', 'created_at' => '2025-11-01 09:00:00', 'updated_at' => null] : null;
 
         if ($assignment !== null) {
             $assignment['files'] = json_decode($assignment['files'], true) ?? [];
@@ -634,5 +603,8 @@ function validateAllowedValue($value, $allowedValues) {
     // TODO: Return the result
     return false;
 }
+
+
+// getAllAssignments();
 
 ?>
