@@ -5,62 +5,42 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ITCS333 Course Homepage</title>
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="src/common/dist/styles.css">
-  <!-- Fallback to source styles so pages render nicely before Tailwind build -->
-  <link rel="stylesheet" href="src/common/styles.css">
+    <title>ITCS333 Course Homepage</title>
+    <link rel="stylesheet" href="src/common/index.css">
   </head>
 
   <body class="index-page">
-    <header class="index-hero">
-      <div class="hero-inner container">
-        <div class="hero-copy">
-          <h1>Welcome to the Web Development Course</h1>
-          <p class="lead">Learn modern front-end and back-end techniques, collaborate on projects, and build a portfolio-ready web app.</p>
-          <div class="btn-row">
-            <a href="src/assignments/list.html" class="btn btn--primary">View Assignments</a>
-            <a href="src/weekly/list.html" class="btn btn--secondary">Weekly Plan</a>
-          </div>
-        </div>
-        <div class="hero-image" aria-hidden="true">
-          <!-- Decorative SVG shape and sample photo -->
-          <svg class="hero-shape" viewBox="0 0 600 400" preserveAspectRatio="none" aria-hidden="true">
-            <defs>
-              <linearGradient id="g1" x1="0" x2="1">
-                <stop offset="0%" stop-color="#3b82f6" />
-                <stop offset="100%" stop-color="#8b5cf6" />
-              </linearGradient>
-            </defs>
-            <path d="M0,300 C150,200 450,400 600,300 L600,0 L0,0 Z" fill="url(#g1)" opacity="0.18"></path>
-          </svg>
-          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200&q=80&auto=format&fit=crop" alt="Students collaborating on laptops" />
-        </div>
-      </div>
+    <header class="index-header">
+      <h1>Welcome to the Web Development Course</h1>
     </header>
 
-    <main class="index-main container py-5">
-      <section class="cards-grid">
-        <article class="card">
-          <h3>Assignments</h3>
-          <p>Track and submit assignments, view grades and feedback.</p>
-          <a class="btn btn--ghost" href="src/assignments/list.html">Open</a>
-        </article>
-        <article class="card">
-          <h3>Weekly Plan</h3>
-          <p>See lecture topics, readings, and exercises week-by-week.</p>
-          <a class="btn btn--ghost" href="src/weekly/list.html">Open</a>
-        </article>
-        <article class="card">
-          <h3>Discussion</h3>
-          <p>Ask questions and collaborate with classmates.</p>
-          <a class="btn btn--ghost" href="src/discussion/board.html">Open</a>
-        </article>
-      </section>
+    <main class="index-main">
+      <nav class="index-nav">
+        <h2>Site Navigation</h2>
+
+        <ul class="index-nav-list">
+          <!-- Section: General -->
+          <section class="index-section general-links">
+            <li><a href="src/auth/login.html">Login</a></li>
+          </section>
+
+          <!-- Section: Admin Pages -->
+          <section class="index-section admin-links">
+            <li><a href="src/admin/manage_users.html">Admin Portal (Manage Students)</a></li>
+            <li><a href="src/resources/admin.html">Admin: Manage Resources</a></li>
+            <li><a href="src/weekly/admin.html">Admin: Manage Weekly Breakdown</a></li>
+            <li><a href="src/assignments/admin.html">Admin: Manage Assignments</a></li>
+          </section>
+
+          <!-- Section: Student Pages -->
+          <section class="index-section student-links">
+            <li><a href="src/resources/list.html">View Course Resources</a></li>
+            <li><a href="src/weekly/list.html">View Weekly Breakdown</a></li>
+            <li><a href="src/assignments/list.html">View Assignments</a></li>
+            <li><a href="src/discussion/board.html">General Discussion Board</a></li>
+          </section>
+        </ul>
+      </nav>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="src/common/theme.js" defer></script>
   </body>
 </html>
