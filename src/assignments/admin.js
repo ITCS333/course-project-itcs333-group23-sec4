@@ -168,7 +168,7 @@ function handleTableClick(event) {
 async function loadAndInitialize() {
   // Always fetch fresh data from database
   try {
-    const response = await fetch('http://localhost:8000/src/assignments/api/index.php?resource=assignments');
+    const response = await fetch('https://4f145ee4-165d-410b-bd56-629bd198bb0f-00-mllyp4mgogim.pike.replit.dev/src/src/assignments/api/index.php?resource=assignments');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const result = await response.json();
     assignments = result.data ? result.data.map(a => ({

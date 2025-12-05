@@ -104,7 +104,7 @@ function createAssignmentArticle(assignment) {
 async function loadAssignments() {
   try {
     // fetch assignments from the local api folder
-    const response = await fetch('http://localhost:8000/src/assignments/api/index.php?resource=assignments');
+    const response = await fetch('https://4f145ee4-165d-410b-bd56-629bd198bb0f-00-mllyp4mgogim.pike.replit.dev/src/assignments/api/index.php?resource=assignments');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const assignments = (await response.json())?.data;
 
