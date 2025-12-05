@@ -104,7 +104,7 @@ function createAssignmentArticle(assignment) {
 async function loadAssignments() {
   try {
     // fetch assignments from the local api folder
-    const response = await fetch('http://localhost:8000/src/assignments/api/index.php');
+    const response = await fetch('http://localhost:8000/src/assignments/api/index.php?resource=assignments');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const assignments = (await response.json())?.data;
 
@@ -121,9 +121,6 @@ async function loadAssignments() {
 
     assignments.forEach(assignment => {
       const article = createAssignmentArticle(assignment);
-      // ensure the details link points to the details page with id
-      const link = article.querySelector('a');
-      if (link) link.setAttribute('href', `details.html?id=${assignment.id}`);
       listSection.appendChild(article);
     });
   } catch (err) {

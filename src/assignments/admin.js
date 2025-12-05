@@ -166,28 +166,20 @@ function handleTableClick(event) {
  * 5. Add the 'click' event listener to `assignmentsTableBody` (calls `handleTableClick`).
  */
 async function loadAndInitialize() {
-  // Try to load from localStorage first
-  const stored = localStorage.getItem('assignments');
-  if (stored) {
-    try {
-      assignments = JSON.parse(stored);
-    } catch (e) {
-      assignments = [];
-    }
-  } else {
-    try {
-      // assignments.json lives in the api/ subfolder
-      const response = await fetch('http://localhost:8000/src/assignments/api/index.php');
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      const data = await response.json();
-      assignments = Array.isArray(data) ? data : [];
-      // Save initial data to localStorage
-      localStorage.setItem('assignments', JSON.stringify(assignments));
-    } catch (err) {
-      // If loading fails (e.g., running from filesystem without a server), fall back
-      console.error('Failed to load assignments.json, falling back to empty list:', err);
-      assignments = [];
-    }
+  // Always fetch fresh data from database
+  try {
+    const response = await fetch('http://localhost:8000/src/assignments/api/index.php?resource=assignments');
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const result = await response.json();
+    assignments = result.data ? result.data.map(a => ({
+      id: a.id,
+      title: a.title,
+      dueDate: a.due_date,
+      description: a.description
+    })) : [];
+  } catch (err) {
+    console.error('Failed to load assignments from database:', err);
+    assignments = [];
   }
 
   renderTable();
