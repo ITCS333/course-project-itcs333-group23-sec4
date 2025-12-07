@@ -201,7 +201,7 @@ function handleAddStudent(event) {
     })
     .catch(error => {
       console.error(error);
-      alert("Error while adding student");
+      alert("Error while adding the student");
     });
 }
 

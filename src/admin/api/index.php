@@ -302,7 +302,6 @@ function updateStudent($db, $data) {
     }
 }
 
-
 /**
  * Function: Delete a student
  * Method: DELETE
@@ -346,7 +345,6 @@ function deleteStudent($db, $studentId) {
         sendResponse(['success'=>false,'message'=>'Failed to delete'],500);
     }
 }
-
 
 /**
  * Function: Change password

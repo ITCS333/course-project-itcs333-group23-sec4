@@ -157,7 +157,6 @@ function setupLoginForm() {
   }
 }
 
-
 // --- Initial Page Load ---
 // Call the main setup function to attach the event listener.
 setupLoginForm();

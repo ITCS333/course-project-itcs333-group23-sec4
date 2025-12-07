@@ -6,63 +6,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../common/dist/styles.css">
     <link rel="stylesheet" href="../common/styles.css">
   </head>
 
-  <body class="login-page">
-    <div class="login-container">
-      <!-- Visual side with scenic background -->
-      <div class="login-visual">
-        <div class="login-visual-content">
-          <div class="login-visual-icon">🎓</div>
-          <h2>Learn & Grow</h2>
-          <p class="subtitle">Join our community of learners. Access assignments, track progress, and collaborate with peers in real-time.</p>
-        </div>
-      </div>
-      
-      <!-- Form side -->
-      <div class="login-form-container">
-        <main class="login-main">
-          <section class="login-section">
-            <h1 class="login-title">Welcome Back</h1>
-            <p class="login-subtitle">Sign in to continue learning</p>
-            
-            <form action="#" class="login-form" id="login-form" novalidate>
-              <fieldset class="login-fieldset">
-                <legend class="login-legend">Secure Login</legend>
+  <body style="display: flex; justify-content: center; align-items: center; height: 100vh;" class="login-page">
+    <main class="login-main">
 
-                <div class="form-group">
-                  <label for="email" class="login-label">Email</label>
-                  <input type="email" id="email" name="email" required class="login-input" placeholder="your@email.com" autocomplete="email">
-                </div>
+      <section class="login-section">
+        <h1 class="login-title">Welcome Back!</h1>
+        
+        <form action="#" class="login-form" id="login-form" novalidate>
+          <fieldset class="login-fieldset">
+            <legend class="login-legend">Secure Login</legend>
 
-                <div class="form-group">
-                  <label for="password" class="login-label">Password</label>
-                  <input type="password" id="password" name="password" required minlength="8" class="login-input" placeholder="••••••••" autocomplete="current-password">
-                </div>
+            <label for="email" class="login-label">Email Address</label>
+            <input type="email" id="email" name="email" required class="login-input">
 
-                <button type="submit" id="login" class="login-button">Sign In</button>
-              </fieldset>
+            <label for="password" class="login-label">Password</label>
+            <input type="password" id="password" name="password" required minlength="8" class="login-input">
 
-              <div id="message-container"></div>
-              
-              <div class="login-divider">or</div>
-              
-              <div class="signup-link">
-                New here? <a href="#">Request an account</a>
-              </div>
-            </form>
-          </section>
-        </main>
-      </div>
-    </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+            <button type="submit" id="login" class="login-button">Log In</button>
+          </fieldset>
+
+          <div id="message-container"></div>
+
+        </form>
+      </section>
+    </main>
     <script src="login.js" defer></script>
-    <script src="../common/theme.js" defer></script>
   </body>
 </html>
