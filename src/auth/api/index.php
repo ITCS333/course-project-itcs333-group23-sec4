@@ -23,7 +23,7 @@ header('Content-Type: application/json');
 
 // TODO: (Optional) Set CORS headers if your frontend and backend are on different domains
 // You'll need headers for Access-Control-Allow-Origin, Methods, and Headers
-header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Origin: same-origin');
 header('Access-Control-Allow-Credentials: true');
 header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Authorization');
