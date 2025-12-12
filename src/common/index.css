@@ -332,6 +332,36 @@ body.login-page {
 }
 
 /* ==========================================
+   LOGIN FORM MESSAGE STYLES (Enhanced)
+   ========================================== */
+#message-container {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm, 6px);
+  box-shadow: var(--shadow-soft, 0 2px 6px rgba(0,0,0,0.1));
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+#message-container.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+#message-container.success {
+  background: rgba(46, 204, 113, 0.15);
+  color: #2ecc71;
+  border: 1px solid #27ae60;
+}
+#message-container.error {
+  background: rgba(231, 76, 60, 0.15);
+  color: #e74c3c;
+  border: 1px solid #c0392b;
+}
+
+/* ==========================================
     MANAGE USERS PAGE
     ========================================== */
 body.manage-users-page {
@@ -425,75 +455,20 @@ body.manage-users-page {
 }
 .btn {
   margin-right: 0.5rem;
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-  border: none !important;
-  outline: none !important;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
-
-.btn::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
-}
-
-.btn:hover::before {
-  width: 300px;
-  height: 300px;
-}
-
-.btn:active {
-  transform: scale(0.95);
-}
-
 .btn.edit-btn {
-  background: linear-gradient(135deg, #4a90e2 0%, #72b2f7 100%);
-  color: white !important;
-  background-size: 200% 200%;
-  animation: gradientShift 3s ease infinite;
+  background: var(--brand);
+  color: var(--bg);
 }
-
 .btn.edit-btn:hover {
-  background: linear-gradient(135deg, #72b2f7 0%, #4a90e2 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(74, 144, 226, 0.5);
+  background: var(--brand-hover);
 }
-
 .btn.delete-btn {
-  background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
-.btn.delete-btn {
-  background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
-  color: white !important;
-  background-size: 200% 200%;
-  animation: gradientShift 3s ease infinite;
+  background: #c0392b;
+  color: var(--text);
 }
-
 .btn.delete-btn:hover {
-  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(231, 76, 60, 0.5);
-}
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  background: #e74c3c;
 }
 .add-student-details {
   background: var(--panel-2);
@@ -520,7 +495,6 @@ body.manage-users-page {
 }
 .add-student-form {
   padding: 1.5rem;
-}
 }
 
 /* ==========================================
@@ -589,38 +563,3 @@ body.manage-users-page {
     padding: 1rem;
   }
 }
-
-/* ==========================================
-   LOGIN FORM MESSAGE STYLES (Enhanced)
-   ========================================== */
-#message-container {
-  margin-top: 1rem;
-  text-align: center;
-  font-size: 1rem;
-  font-weight: 600;
-  padding: 0.75rem 1rem;
-  border-radius: var(--radius-sm, 6px);
-  box-shadow: var(--shadow-soft, 0 2px 6px rgba(0,0,0,0.1));
-  opacity: 0;
-  transform: translateY(-5px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-#message-container.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-#message-container.success {
-  background: rgba(46, 204, 113, 0.15);
-  color: #2ecc71;
-  border: 1px solid #27ae60;
-}
-#message-container.error {
-  background: rgba(231, 76, 60, 0.15);
-  color: #e74c3c;
-  border: 1px solid #c0392b;
-}
-
-
-/*------------------------------------------------------------------------------------------------------
----------------------------------------end of Husain's part CSS-----------------------------------------
---------------------------------------------------------------------------------------------------------*/
