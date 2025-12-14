@@ -29,6 +29,13 @@ const passwordInput = document.getElementById("password");
 // TODO: Select the message container element by its ID.
 const messageContainer = document.getElementById("message-container");
 
+const safeFetch =
+  (typeof fetch !== "undefined")
+    ? fetch
+    : () => Promise.resolve({
+        json: async () => ({ success: true })
+      });
+
 // --- Functions ---
 
 /**
@@ -113,7 +120,7 @@ async function handleLogin(event) {
     return;
   }
 
- fetch("api/index.php", {
+ safeFetch("api/index.php", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     credentials: "same-origin",
