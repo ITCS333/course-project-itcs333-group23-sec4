@@ -1,0 +1,400 @@
+
+> project@1.0.0 test
+> jest
+
+FAIL tests/discussion_list.test.js
+  ● Discussion Board Script Tests › TASK5201 createTopicArticle Function › should return an article element
+
+    expect(received).toBeTruthy()
+
+    Received: undefined
+
+    [0m [90m 61 |[39m       }[33m;[39m
+     [90m 62 |[39m       [36mconst[39m article [33m=[39m sandbox[33m.[39mcreateTopicArticle(mockTopic)[33m;[39m
+    [31m[1m>[22m[39m[90m 63 |[39m       expect(article)[33m.[39mtoBeTruthy()[33m;[39m
+     [90m    |[39m                       [31m[1m^[22m[39m
+     [90m 64 |[39m       expect(article[33m.[39mtagName)[33m.[39mtoBe([32m'ARTICLE'[39m)[33m;[39m
+     [90m 65 |[39m     })[33m;[39m
+     [90m 66 |[39m   })[33m;[39m[0m
+
+      at Object.toBeTruthy (tests/discussion_list.test.js:63:23)
+
+  ● Discussion Board Script Tests › TASK5203 handleCreateTopic Function › should prevent default form submission
+
+    expect(jest.fn()).toHaveBeenCalled()
+
+    Expected number of calls: >= 1
+    Received number of calls:    0
+
+    [0m [90m 91 |[39m       
+     [90m 92 |[39m       sandbox[33m.[39mhandleCreateTopic(mockEvent)[33m;[39m
+    [31m[1m>[22m[39m[90m 93 |[39m       expect(mockEvent[33m.[39mpreventDefault)[33m.[39mtoHaveBeenCalled()[33m;[39m
+     [90m    |[39m                                        [31m[1m^[22m[39m
+     [90m 94 |[39m     })[33m;[39m
+     [90m 95 |[39m
+     [90m 96 |[39m   })[33m;[39m[0m
+
+      at Object.toHaveBeenCalled (tests/discussion_list.test.js:93:40)
+
+PASS tests/assignments_list.test.js
+PASS tests/resources_list.test.js
+PASS tests/weekly_list.test.js
+PASS tests/manage_users.test.js
+  ● Console
+
+    console.error
+      Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+          at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+    console.error
+      Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+          at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+    console.error
+      Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+          at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+    console.error
+      Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+          at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+    console.error
+      Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+          at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+    console.error
+      Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+          at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+    console.error
+      Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+          at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+    console.error
+      Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+          at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+    console.error
+      Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+          at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+    console.error
+      Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+          at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+    console.error
+      Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+          at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+    console.error
+      Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+          at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+    console.error
+      Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+          at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+    console.error
+      Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+          at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+    console.error
+      Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+          at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+    console.error
+      Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+          at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+PASS tests/login.test.js
+  ● Console
+
+    console.log
+      setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+    console.log
+      Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+    console.log
+      setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+    console.log
+      Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+    console.log
+      setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+    console.log
+      Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+    console.log
+      setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+    console.log
+      Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+    console.log
+      setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+    console.log
+      Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+    console.log
+      setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+    console.log
+      Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+    console.log
+      setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+    console.log
+      Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+    console.log
+      setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+    console.log
+      Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+    console.log
+      setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+    console.log
+      Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+    console.log
+      setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+    console.log
+      Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+    console.log
+      setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+    console.log
+      Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+    console.log
+      setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+    console.log
+      Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+    console.log
+      setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+    console.log
+      Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+    console.log
+      setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+    console.log
+      Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+    console.log
+      setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+    console.log
+      Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+    console.error
+      ReferenceError: setTimeout is not defined
+          at evalmachine.<anonymous>:134:7
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at evalmachine.<anonymous>:143:13
+
+    console.log
+      setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+    console.log
+      Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+    console.log
+      setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+    console.log
+      Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+    console.log
+      setupLoginForm() running
+
+      at Object.setupLoginForm (evalmachine.<anonymous>:157:11)
+
+    console.log
+      Login form found
+
+      at Object.setupLoginForm (evalmachine.<anonymous>:160:13)
+
+    console.log
+      setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+    console.log
+      Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+FAIL tests/discussion_list.html.test.js
+  ● HTML File Check › The file 'baord.html' should exist
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+    [0m [90m 13 |[39m     test([32m`The file 'baord.html' should exist`[39m[33m,[39m () [33m=>[39m {
+     [90m 14 |[39m       [90m// This test will fail and provide a clear message.[39m
+    [31m[1m>[22m[39m[90m 15 |[39m       expect(fs[33m.[39mexistsSync(htmlPath))[33m.[39mtoBe([36mtrue[39m)[33m;[39m
+     [90m    |[39m                                       [31m[1m^[22m[39m
+     [90m 16 |[39m     })[33m;[39m
+     [90m 17 |[39m   })[33m;[39m
+     [90m 18 |[39m } [36melse[39m {[0m
+
+      at Object.toBe (tests/discussion_list.html.test.js:15:39)
+
+PASS tests/weekly_list.html.test.js
+PASS tests/login.html.test.js
+PASS tests/manage_users.html.test.js
+PASS tests/assignments_list.html.test.js
+FAIL tests/resources_list.html.test.js
+  ● TASK2104 Header Structure › should have a header element
+
+    expect(received).toBeTruthy()
+
+    Received: null
+
+    [0m [90m 55 |[39m     test([32m'should have a header element'[39m[33m,[39m () [33m=>[39m {
+     [90m 56 |[39m       [36mconst[39m header [33m=[39m document[33m.[39mquerySelector([32m'header'[39m)[33m;[39m
+    [31m[1m>[22m[39m[90m 57 |[39m       expect(header)[33m.[39mtoBeTruthy()[33m;[39m
+     [90m    |[39m                      [31m[1m^[22m[39m
+     [90m 58 |[39m     })[33m;[39m
+     [90m 59 |[39m
+     [90m 60 |[39m     test([32m'should have an h heading'[39m[33m,[39m () [33m=>[39m {[0m
+
+      at Object.toBeTruthy (tests/resources_list.html.test.js:57:22)
+
+Test Suites: 3 failed, 9 passed, 12 total
+Tests:       4 failed, 122 passed, 126 total
+Snapshots:   0 total
+Time:        6.568 s
+Ran all test suites.

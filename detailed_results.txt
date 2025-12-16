@@ -1,0 +1,75 @@
+PASS tests/resources_list.test.js
+    TASK2201 createResourceArticle Function
+    TASK2202 loadResources Function
+PASS tests/assignments_list.test.js
+    TASK4201 createAssignmentArticle Function
+    TASK4202 loadAssignments Function
+PASS tests/weekly_list.test.js
+    TASK3201 createWeekArticle Function
+    TASK3202 loadWeeks Function
+FAIL tests/discussion_list.test.js
+    TASK5201 createTopicArticle Function
+    TASK5202 renderTopics Function
+    TASK5203 handleCreateTopic Function
+    TASK5204 handleTopicListClick Function
+    TASK5205 loadAndInitialize Function
+  ● Discussion Board Script Tests › TASK5201 createTopicArticle Function › should return an article element
+  ● Discussion Board Script Tests › TASK5203 handleCreateTopic Function › should prevent default form submission
+PASS tests/manage_users.test.js
+    TASK1501 createStudentRow Function
+    TASK1502 renderTable Function
+    TASK1503 handleChangePassword Function
+    TASK1504 handleAddStudent Function
+    TASK1505 handleTableClick Function
+    TASK1506 handleSearch Function
+    TASK1507 handleSort Function
+    TASK1508 loadStudentsAndInitialize Function
+PASS tests/login.test.js
+    TASK1201 displayMessage Function
+    TASK1202 isValidEmail Function
+    TASK1203 isValidPassword Function
+    TASK1204 handleLogin Function
+    TASK1205 setupLoginForm Function
+    TASK1206 Initial Setup
+FAIL tests/discussion_list.html.test.js
+PASS tests/manage_users.html.test.js
+  TASK1401 Meta Tags
+  TASK1402 Page Title
+  TASK1403 CSS Link
+  TASK1404 Header Structure
+  TASK1405 Main Element
+  TASK1406 Password Form
+  TASK1407 Password Fields
+  TASK1408 Student Form Fields
+PASS tests/weekly_list.html.test.js
+  TASK3101 Meta Tags
+  TASK3102 Page Title
+  TASK3103 CSS Link
+  TASK3104 Header Structure
+  TASK3105 Main Element
+PASS tests/assignments_list.html.test.js
+  TASK4101 Meta Tags
+  TASK4102 Page Title
+  TASK4103 CSS Link
+  TASK4104 Header Structure
+  TASK4105 Main Element
+PASS tests/login.html.test.js
+  TASK1101 Meta Tags
+  TASK1102 Page Title
+  TASK1103 CSS Link
+  TASK1104 Page Structure
+  TASK1105 Form Element
+  TASK1106 Email Field
+  TASK1107 Password Field
+  TASK1108 Submit Button
+  TASK1109 Message Container (for JS)
+  TASK1110 Script Tag
+FAIL tests/resources_list.html.test.js
+  TASK2101 Meta Tags
+  TASK2102 Page Title
+  TASK2103 CSS Link
+  TASK2104 Header Structure
+  TASK2105 Main Element
+  ● TASK2104 Header Structure › should have a header element
+Test Suites: 3 failed, 9 passed, 12 total
+Tests:       4 failed, 122 passed, 126 total

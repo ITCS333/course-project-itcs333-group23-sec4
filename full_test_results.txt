@@ -1,0 +1,583 @@
+
+> project@1.0.0 test
+> jest --verbose
+
+  console.log
+    setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+  console.log
+    Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+  console.log
+    setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+  console.log
+    Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+PASS tests/assignments_list.test.js
+  Assignemnts Script Tests
+    TASK4201 createAssignmentArticle Function
+      √ should exist and be a function (68 ms)
+      √ should accept one parameter (11 ms)
+    TASK4202 loadAssignments Function
+      √ should exist and be a function (8 ms)
+      √ should be an async function (5 ms)
+
+  console.log
+    setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+  console.log
+    Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+  console.log
+    setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+  console.log
+    Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+  console.log
+    setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+  console.log
+    Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+PASS tests/resources_list.test.js
+  Course Resources List Script Tests
+    TASK2201 createResourceArticle Function
+      √ should exist and be a function (68 ms)
+      √ should accept one parameter (12 ms)
+    TASK2202 loadResources Function
+      √ should exist and be a function (12 ms)
+      √ should be an async function (6 ms)
+
+  console.log
+    setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+  console.log
+    Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+  console.log
+    setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+  console.log
+    Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+PASS tests/weekly_list.test.js
+  Weekly Course Breakdown List Script Tests
+    TASK3201 createWeekArticle Function
+      √ should exist and be a function (68 ms)
+      √ should accept one parameter (9 ms)
+    TASK3202 loadWeeks Function
+      √ should exist and be a function (10 ms)
+      √ should be an async function (6 ms)
+
+  console.log
+    setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+  console.log
+    Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+  console.error
+    Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+        at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+        at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+  console.log
+    setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+  console.log
+    Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+  console.log
+    setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+  console.log
+    Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+  console.log
+    setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+  console.error
+    Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+        at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+        at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+  console.log
+    Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+  console.log
+    setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+  console.log
+    Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+  console.error
+    Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+        at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+        at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+  console.log
+    setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+  console.log
+    Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+  console.log
+    setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+  console.log
+    Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+  console.error
+    Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+        at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+        at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+  console.log
+    setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+  console.log
+    Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+  console.error
+    Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+        at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+        at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+  console.error
+    ReferenceError: setTimeout is not defined
+        at evalmachine.<anonymous>:134:7
+        at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at evalmachine.<anonymous>:143:13
+
+  console.log
+    setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+  console.error
+    Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+        at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+        at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+  console.log
+    Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+  console.log
+    setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+  console.log
+    Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+  console.error
+    Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+        at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+        at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+  console.log
+    setupLoginForm() running
+
+      at Object.setupLoginForm (evalmachine.<anonymous>:157:11)
+
+FAIL tests/discussion_list.test.js
+  Discussion Board Script Tests
+    TASK5201 createTopicArticle Function
+      √ should exist and be a function (83 ms)
+      √ should accept one parameter (13 ms)
+      × should return an article element (13 ms)
+    TASK5202 renderTopics Function
+      √ should exist and be a function (8 ms)
+    TASK5203 handleCreateTopic Function
+      √ should exist and be a function (8 ms)
+      √ should accept one parameter (event) (8 ms)
+      × should prevent default form submission (12 ms)
+    TASK5204 handleTopicListClick Function
+      √ should exist and be a function (10 ms)
+      √ should accept one parameter (event) (15 ms)
+    TASK5205 loadAndInitialize Function
+      √ should exist and be a function (9 ms)
+      √ should be an async function (6 ms)
+
+  ● Discussion Board Script Tests › TASK5201 createTopicArticle Function › should return an article element
+
+    expect(received).toBeTruthy()
+
+    Received: undefined
+
+    [0m [90m 61 |[39m       }[33m;[39m
+     [90m 62 |[39m       [36mconst[39m article [33m=[39m sandbox[33m.[39mcreateTopicArticle(mockTopic)[33m;[39m
+    [31m[1m>[22m[39m[90m 63 |[39m       expect(article)[33m.[39mtoBeTruthy()[33m;[39m
+     [90m    |[39m                       [31m[1m^[22m[39m
+     [90m 64 |[39m       expect(article[33m.[39mtagName)[33m.[39mtoBe([32m'ARTICLE'[39m)[33m;[39m
+     [90m 65 |[39m     })[33m;[39m
+     [90m 66 |[39m   })[33m;[39m[0m
+
+      at Object.toBeTruthy (tests/discussion_list.test.js:63:23)
+
+  ● Discussion Board Script Tests › TASK5203 handleCreateTopic Function › should prevent default form submission
+
+    expect(jest.fn()).toHaveBeenCalled()
+
+    Expected number of calls: >= 1
+    Received number of calls:    0
+
+    [0m [90m 91 |[39m       
+     [90m 92 |[39m       sandbox[33m.[39mhandleCreateTopic(mockEvent)[33m;[39m
+    [31m[1m>[22m[39m[90m 93 |[39m       expect(mockEvent[33m.[39mpreventDefault)[33m.[39mtoHaveBeenCalled()[33m;[39m
+     [90m    |[39m                                        [31m[1m^[22m[39m
+     [90m 94 |[39m     })[33m;[39m
+     [90m 95 |[39m
+     [90m 96 |[39m   })[33m;[39m[0m
+
+      at Object.toHaveBeenCalled (tests/discussion_list.test.js:93:40)
+
+  console.log
+    Login form found
+
+      at Object.setupLoginForm (evalmachine.<anonymous>:160:13)
+
+  console.log
+    setupLoginForm() running
+
+      at setupLoginForm (evalmachine.<anonymous>:157:11)
+
+  console.error
+    Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+        at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+        at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+  console.log
+    Login form found
+
+      at setupLoginForm (evalmachine.<anonymous>:160:13)
+
+  console.error
+    Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+        at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+        at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+PASS tests/login.test.js
+  Login Script Tests
+    TASK1201 displayMessage Function
+      √ should exist and be a function (193 ms)
+      √ should accept two parameters (19 ms)
+    TASK1202 isValidEmail Function
+      √ should exist and be a function (28 ms)
+      √ should accept one parameter (14 ms)
+      √ should return a boolean (15 ms)
+      √ should return true for valid email (13 ms)
+      √ should return false for invalid email (10 ms)
+    TASK1203 isValidPassword Function
+      √ should exist and be a function (14 ms)
+      √ should accept one parameter (17 ms)
+      √ should return a boolean (10 ms)
+      √ should return true for password with 8+ characters (13 ms)
+      √ should return false for password with less than 8 characters (14 ms)
+    TASK1204 handleLogin Function
+      √ should exist and be a function (14 ms)
+      √ should accept one parameter (event) (14 ms)
+      √ should call preventDefault on event (22 ms)
+    TASK1205 setupLoginForm Function
+      √ should exist and be a function (11 ms)
+      √ should add submit event listener to form (18 ms)
+    TASK1206 Initial Setup
+      √ setupLoginForm should be called on page load (15 ms)
+
+  console.error
+    Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+        at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+        at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+  console.error
+    Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+        at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+        at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+  console.error
+    Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+        at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+        at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+  console.error
+    Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+        at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+        at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+  console.error
+    Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+        at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+        at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+  console.error
+    Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+        at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+        at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+  console.error
+    Error loading students TypeError: Cannot read properties of undefined (reading 'ok')
+        at loadStudentsAndInitialize (evalmachine.<anonymous>:364:19)
+        at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+      at loadStudentsAndInitialize (evalmachine.<anonymous>:372:13)
+
+PASS tests/manage_users.test.js
+  Manage Users Script Tests
+    TASK1501 createStudentRow Function
+      √ should exist and be a function (254 ms)
+      √ should accept one parameter (24 ms)
+    TASK1502 renderTable Function
+      √ should exist and be a function (25 ms)
+      √ should accept one parameter (19 ms)
+    TASK1503 handleChangePassword Function
+      √ should exist and be a function (17 ms)
+      √ should accept one parameter (event) (12 ms)
+    TASK1504 handleAddStudent Function
+      √ should exist and be a function (13 ms)
+      √ should accept one parameter (event) (11 ms)
+    TASK1505 handleTableClick Function
+      √ should exist and be a function (19 ms)
+      √ should accept one parameter (event) (10 ms)
+    TASK1506 handleSearch Function
+      √ should exist and be a function (10 ms)
+      √ should accept one parameter (event) (9 ms)
+    TASK1507 handleSort Function
+      √ should exist and be a function (11 ms)
+      √ should accept one parameter (event) (9 ms)
+    TASK1508 loadStudentsAndInitialize Function
+      √ should exist and be a function (9 ms)
+      √ should be an async function (10 ms)
+
+FAIL tests/discussion_list.html.test.js
+  HTML File Check
+    × The file 'baord.html' should exist (22 ms)
+
+  ● HTML File Check › The file 'baord.html' should exist
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+    [0m [90m 13 |[39m     test([32m`The file 'baord.html' should exist`[39m[33m,[39m () [33m=>[39m {
+     [90m 14 |[39m       [90m// This test will fail and provide a clear message.[39m
+    [31m[1m>[22m[39m[90m 15 |[39m       expect(fs[33m.[39mexistsSync(htmlPath))[33m.[39mtoBe([36mtrue[39m)[33m;[39m
+     [90m    |[39m                                       [31m[1m^[22m[39m
+     [90m 16 |[39m     })[33m;[39m
+     [90m 17 |[39m   })[33m;[39m
+     [90m 18 |[39m } [36melse[39m {[0m
+
+      at Object.toBe (tests/discussion_list.html.test.js:15:39)
+
+PASS tests/login.html.test.js
+  TASK1101 Meta Tags
+    √ should have a meta tag with charset attribute (21 ms)
+    √ should have a viewport meta tag (2 ms)
+  TASK1102 Page Title
+    √ should have a title element (2 ms)
+  TASK1103 CSS Link
+    √ should have at least one stylesheet link (3 ms)
+  TASK1104 Page Structure
+    √ should have a main element (1 ms)
+    √ should have a section element (1 ms)
+    √ should have a heading element (h1, h2, h3, h4, h5, or h6) (2 ms)
+  TASK1105 Form Element
+    √ should have a form element (1 ms)
+    √ should have form with action attribute (1 ms)
+    √ should have a fieldset inside form (2 ms)
+    √ should have a legend inside fieldset (2 ms)
+  TASK1106 Email Field
+    √ should have a label with "for" attribute (1 ms)
+    √ should have an email input with type="email" (1 ms)
+    √ should have email input with id attribute (1 ms)
+    √ should have email input with required attribute (1 ms)
+  TASK1107 Password Field
+    √ should have another label with "for" attribute (for password) (1 ms)
+    √ should have a password input with type="password" (1 ms)
+    √ should have password input with id attribute
+    √ should have password input with required attribute (1 ms)
+    √ should have password input with minlength attribute
+  TASK1108 Submit Button
+    √ should have a button element (1 ms)
+    √ should have button with type attribute
+    √ should have button with id attribute (1 ms)
+    √ button should have text content
+  TASK1109 Message Container (for JS)
+    √ should have a div with id attribute (for message container) (1 ms)
+  TASK1110 Script Tag
+    √ should have a script tag (1 ms)
+    √ should have script tag with defer attribute (5 ms)
+    √ should have script tag with src attribute (1 ms)
+
+PASS tests/manage_users.html.test.js
+  TASK1401 Meta Tags
+    √ should have a meta tag with charset attribute (18 ms)
+    √ should have a viewport meta tag (2 ms)
+  TASK1402 Page Title
+    √ should have a title element (3 ms)
+  TASK1403 CSS Link
+    √ should have at least one stylesheet link (3 ms)
+  TASK1404 Header Structure
+    √ should have a header element (2 ms)
+    √ should have an h heading (5 ms)
+  TASK1405 Main Element
+    √ should have a main element (1 ms)
+    √ should have section elements (2 ms)
+  TASK1406 Password Form
+    √ should have a form element (1 ms)
+  TASK1407 Password Fields
+    √ should have at least 3 password inputs (2 ms)
+    √ should have password inputs with id attributes (2 ms)
+    √ should have password inputs with required attribute (1 ms)
+    √ should have at least one password input with minlength attribute
+  TASK1408 Student Form Fields
+    √ should have at least 2 forms
+    √ should have text type inputs (1 ms)
+    √ should have an email type input (1 ms)
+    √ should have email input with id attribute
+    √ should have email input with required attribute (1 ms)
+
+PASS tests/weekly_list.html.test.js
+  TASK3101 Meta Tags
+    √ should have a meta tag with charset attribute (21 ms)
+    √ should have a viewport meta tag (2 ms)
+  TASK3102 Page Title
+    √ should have a title element (1 ms)
+  TASK3103 CSS Link
+    √ should have at least one stylesheet link (3 ms)
+  TASK3104 Header Structure
+    √ should have a header element (1 ms)
+    √ should have an h heading (3 ms)
+  TASK3105 Main Element
+    √ should have a main element (1 ms)
+    √ should have a section element (1 ms)
+
+PASS tests/resources_list.html.test.js
+  TASK2101 Meta Tags
+    √ should have a meta tag with charset attribute (18 ms)
+    √ should have a viewport meta tag (2 ms)
+  TASK2102 Page Title
+    √ should have a title element (2 ms)
+  TASK2103 CSS Link
+    √ should have at least one stylesheet link (3 ms)
+  TASK2104 Header Structure
+    √ should have a header element (1 ms)
+    √ should have an h heading (4 ms)
+  TASK2105 Main Element
+    √ should have a main element (2 ms)
+
+PASS tests/assignments_list.html.test.js
+  TASK4101 Meta Tags
+    √ should have a meta tag with charset attribute (18 ms)
+    √ should have a viewport meta tag (1 ms)
+  TASK4102 Page Title
+    √ should have a title element (1 ms)
+  TASK4103 CSS Link
+    √ should have at least one stylesheet link (2 ms)
+  TASK4104 Header Structure
+    √ should have a header element (1 ms)
+    √ should have an h heading (4 ms)
+  TASK4105 Main Element
+    √ should have a main element (1 ms)
+
+Test Suites: 2 failed, 10 passed, 12 total
+Tests:       3 failed, 123 passed, 126 total
+Snapshots:   0 total
+Time:        6.536 s
+Ran all test suites.
